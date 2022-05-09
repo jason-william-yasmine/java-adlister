@@ -1,53 +1,99 @@
 package com.codeup.adlister.models;
 
 public class Review {
+
+    // F
     private long id;
     private long userReviewId;
+    private int userRating;
+    private String tutUrl;
+    private String tutThumbUrl;
+    private String tutDescription;
+    private double tutCost;
     private String reviewName;
-    private String description;
+    private int reviewViews;
+    private int reviewUpVotes;
 
-    public Ad(long id, long userReviewId, String reviewName, String description) {
+    // CON
+    // 1
+    public Review() {
+    }
+    // 2
+    public Review(long id, long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String reviewName, int reviewViews, int reviewUpVotes) {
         this.id = id;
         this.userReviewId = userReviewId;
+        this.userRating = userRating;
+        this.tutUrl = tutUrl;
+        this.tutThumbUrl = tutThumbUrl;
+        this.tutDescription = tutDescription;
+        this.tutCost = tutCost;
         this.reviewName = reviewName;
-        this.description = description;
+        this.reviewViews = reviewViews;
+        this.reviewUpVotes = reviewUpVotes;
     }
 
-    public Ad(long userReviewId, String reviewName, String description) {
-        this.userReviewId = userReviewId;
-        this.reviewName = reviewName;
-        this.description = description;
-    }
-
+    // GETS
     public long getId() {
         return id;
     }
+    public long getUserReviewId() {
+        return userReviewId;
+    }
+    public int getUserRating() {
+        return userRating;
+    }
+    public String getTutUrl() {
+        return tutUrl;
+    }
+    public String getTutThumbUrl() {
+        return tutThumbUrl;
+    }
+    public String getTutDescription() {
+        return tutDescription;
+    }
+    public double getTutCost() {
+        return tutCost;
+    }
+    public String getReviewName() {
+        return reviewName;
+    }
+    public int getReviewViews() {
+        return reviewViews;
+    }
+    public int getReviewUpVotes() {
+        return reviewUpVotes;
+    }
 
+    // SETS
     public void setId(long id) {
         this.id = id;
     }
-
-    public long getuserReviewId() {
-        return userReviewId;
-    }
-
-    public void setuserReviewId(long userReviewId) {
+    public void setUserReviewId(long userReviewId) {
         this.userReviewId = userReviewId;
     }
-
-    public String getreviewName() {
-        return reviewName;
+    public void setUserRating(int userRating) {
+        this.userRating = userRating;
     }
-
-    public void setreviewName(String reviewName) {
+    public void setTutUrl(String tutUrl) {
+        this.tutUrl = tutUrl;
+    }
+    public void setTutThumbUrl(String tutThumbUrl) {
+        this.tutThumbUrl = tutThumbUrl;
+    }
+    public void setTutDescription(String tutDescription) {
+        this.tutDescription = tutDescription;
+    }
+    public void setTutCost(double tutCost) {
+        this.tutCost = tutCost;
+    }
+    public void setReviewName(String reviewName) {
         this.reviewName = reviewName;
     }
-
-    public String getDescription() {
-        return description;
+    public void setReviewViews(int reviewViews) {
+        this.reviewViews = reviewViews;
+    }
+    public void setReviewUpVotes(int reviewUpVotes) {
+        this.reviewUpVotes = reviewUpVotes;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-}
+}  //  <--END
