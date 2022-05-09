@@ -37,7 +37,7 @@
 
                     <li class="nav-item dropdown mr-3">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <i class="fas fa-user"></i> Welcome >Name<
+                            <i class="fas fa-user"></i> Welcome ${sessionScope.user.username}
                         </a>
                         <div class="dropdown-menu">
                             <a href="/profile" class="dropdown-item">
