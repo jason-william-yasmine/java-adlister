@@ -68,8 +68,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
-
     @Override
     public void delete(Ad ad) {
         try {
