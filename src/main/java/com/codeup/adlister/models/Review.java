@@ -31,6 +31,19 @@ public class Review {
         this.reviewViews = reviewViews;
         this.reviewUpVotes = reviewUpVotes;
     }
+    // 3
+    public Review(long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String reviewName, int reviewViews, int reviewUpVotes) {
+        this.userReviewId = userReviewId;
+        this.userRating = userRating;
+        this.tutUrl = tutUrl;
+        this.tutThumbUrl = tutThumbUrl;
+        this.tutDescription = tutDescription;
+        this.tutCost = tutCost;
+        this.reviewName = reviewName;
+        this.reviewViews = reviewViews;
+        this.reviewUpVotes = reviewUpVotes;
+    }
+
 
     // GETS
     public long getId() {

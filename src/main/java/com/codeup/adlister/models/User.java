@@ -9,17 +9,22 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private String ghUrl;
+    private String GhUrl;
     private String profile_pix_url;
     private String path;
 
     public User() {};
 
+<<<<<<< HEAD
     public User(long id, String username, String email, String password, String ghUrl, String profile_pix_url, String path) {
+=======
+    public User(long id, String username, String email, String password, String ghUrl, String profile_pix_url, String path, String profilePixUrl, String careerPath) {
+>>>>>>> 98cd5440b0432b5f3a5ac5bd3aff5cb89f9b9c46
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
+<<<<<<< HEAD
         this.ghUrl = ghUrl;
         this.profile_pix_url = profile_pix_url;
         this.path = path;
@@ -37,6 +42,37 @@ public class User {
     public long getId() {
         return id;
     }
+=======
+        this.GhUrl = ghUrl;
+        this.profile_pix_url = profile_pix_url;
+        this.path = path;
+        this.profilePixUrl = profilePixUrl;
+        this.careerPath = careerPath;
+    }
+
+    // GETS
+    public long getId() {
+        return id;
+    }
+    public String getUsername() {
+        return username;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public String getGhUrl() {
+        return GhUrl;
+    }
+    public String getProfilePixUrl() {
+        return profilePixUrl;
+    }
+    public String getCareerPath() {
+        return careerPath;
+    }
+>>>>>>> 98cd5440b0432b5f3a5ac5bd3aff5cb89f9b9c46
 
     public void setId(long id) {
         this.id = id;
