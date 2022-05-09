@@ -24,7 +24,6 @@ CREATE TABLE Tech_Tut_Reviews (
       PRIMARY KEY (id));
 ;
 
-
 -- 3. Seed Table:
 INSERT INTO tech_tut_reviews(user_review_id, user_review, user_rating, tut_url, tut_thumb_url, tut_description, tut_cost, review_title, review_views, review_upvotes)
 VALUES (3,
@@ -33,7 +32,7 @@ VALUES (3,
         'https://www.youtube.com/watch?v=Y6vXxjp6a3w',
         'img/tut-thumbs/YouTube.png',
         'This was the best dag-gum tutorial on something or other...',
-        5.33,
+        5.34,
         'Review #1',
         null,
         null
@@ -44,7 +43,7 @@ VALUES (3,
         'https://www.youtube.com/watch?v=Y6vXxjp6a3w',
         'img/tut-thumbs/YouTube.png',
         'WOO HOO! WOO HOO!',
-        4.99,
+        5.99,
         'Review #2',
         null,
         null
@@ -55,7 +54,7 @@ VALUES (3,
         'https://www.youtube.com/watch?v=Y6vXxjp6a3w',
         'img/tut-thumbs/YouTube.png',
         'It just goes to show ya that a one-eyed jack rabbit can beat a king',
-        59.45,
+        59.55,
         'Review #3',
         null,
         null
@@ -68,3 +67,4 @@ DESC tech_tut_reviews;
 SHOW CREATE TABLE tech_tut_reviews;
 
 SELECT * FROM tech_tut_reviews;
+
