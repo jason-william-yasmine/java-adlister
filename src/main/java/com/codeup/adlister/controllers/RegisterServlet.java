@@ -26,8 +26,6 @@ public class RegisterServlet extends HttpServlet {
         String profilePixUrl = request.getParameter("profile-pix-url");
         String path = request.getParameter("path");
 
-        String profilePixUrl = request.getParameter("profile_pix_url");
-
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
