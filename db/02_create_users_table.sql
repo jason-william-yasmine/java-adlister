@@ -21,9 +21,9 @@ CREATE TABLE users (
 
 -- 3. Seed Table:
 INSERT INTO users (username, email, password, gh_url, profile_pix_url, path)
-VALUES ('bugs', 'bugs@toon.com', '1234', null, 'picture url here', null),
-       ('daffy', 'daffy@toon.com', '1234', null, 'picture url here', null),
-       ('yosemite', 'yosemite@toon.com', '1234', null, 'picture url here', null)
+VALUES ('bugs', 'bugs@toon.com', '1234', null, '/img/avatars/black-01.png', null),
+       ('daffy', 'daffy@toon.com', '1234', null, '/img/avatars/blue-01.png', null),
+       ('yosemite', 'yosemite@toon.com', '1234', null, '/img/avatars/brown-01.png', null)
 ;
 
 -- 4. Checks
