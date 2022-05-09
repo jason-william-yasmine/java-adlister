@@ -24,7 +24,7 @@ public class MySQLReviewsDao implements Reviews{
             throw new RuntimeException("Error connecting to DB (MySQLReviewsDao");
         }
     }
-
+    // TEST
     // OVR
     @Override
     public List<Review> all() {
