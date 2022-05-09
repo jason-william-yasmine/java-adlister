@@ -21,7 +21,13 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
+<<<<<<< HEAD
+        String ghURL = request.getParameter("gh-url");
+        String profilePixUrl = request.getParameter("profile-pix-url");
+        String path = request.getParameter("path");
+=======
         String profilePixUrl = request.getParameter("profile_pix_url");
+>>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
@@ -35,7 +41,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
         // create and save a new user
-        User user = new User(username, email, password);
+        User user = new User(username, email, password, ghURL, profilePixUrl, path);
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
     }
