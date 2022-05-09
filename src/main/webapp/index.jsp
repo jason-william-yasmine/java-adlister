@@ -106,7 +106,16 @@
     </section>
 
     <%--TEST--%>
-
+    <c:forEach var="review" items="${reviews}">
+        <div class="col-md-6">
+            <h2>
+                <c:out value="${review.reviewName}" />
+            </h2>
+            <p>
+                <c:out value="${review.tutDescription}" />
+            </p>
+        </div>
+    </c:forEach>
 
     <%--FOOT--%>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
