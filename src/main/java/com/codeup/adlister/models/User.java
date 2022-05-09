@@ -12,93 +12,58 @@ public class User {
     private String ghUrl;
     private String profile_pix_url;
     private String path;
-    private String profilePixUrl;
-    private String careerPath;
 
-    // CON
-    // 1
-    public User() {}
+    public User() {};
 
-    public User(String username, String email, String password, String ghUrl, String profilePixUrl, String path) {
-        this.username = username;
-        this.email = email;
-        setPassword(password);
-        this.ghUrl = ghUrl;
-        this.profile_pix_url = profilePixUrl;
-        this.path = path;
-
-    // 2
-    public User(long id, String username, String email, String password, String ghUrl, String profilePixUrl, String careerPath) {
+    public User(long id, String username, String email, String password, String ghUrl, String profile_pix_url, String path) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
         this.ghUrl = ghUrl;
-        this.profilePixUrl = profilePixUrl;
-        this.careerPath = careerPath;
-    }
-    // 3
-    public User(long id, String username, String email, String password, String profilePixUrl) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.profilePixUrl = profilePixUrl;
-
-    }
-    // 4
-    public User(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(long id, String username, String email, String password, String ghUrl, String profilePixUrl, String path) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.ghUrl = ghUrl;
-        this.profile_pix_url = profilePixUrl;
+        this.profile_pix_url = profile_pix_url;
         this.path = path;
     }
 
+    public User(String username, String email, String password, String ghUrl, String profile_pix_url, String path) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.ghUrl = ghUrl;
+        this.profile_pix_url = profile_pix_url;
+        this.path = path;
+    }
 
-    // GETS
     public long getId() {
         return id;
     }
-    public String getUsername() {
-        return username;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public String getGhUrl() {
-        return ghUrl;
-    }
-    public String getProfilePixUrl() {
-        return profilePixUrl;
-    }
-    public String getCareerPath() {
-        return careerPath;
-    }
 
-    // SETS
     public void setId(long id) {
         this.id = id;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
-        this.password = Password.hash(password);
+        this.password = password;
     }
 
     public String getGhUrl() {
@@ -124,16 +89,4 @@ public class User {
     public void setPath(String path) {
         this.path = path;
     }
-}
-    public void setGhUrl(String ghUrl) {
-        this.ghUrl = ghUrl;
-    }
-    public void setProfilePixUrl(String profilePixUrl) {
-        this.profilePixUrl = profilePixUrl;
-    }
-    public void setCareerPath(String careerPath) {
-        this.careerPath = careerPath;
-    }
-
-
 }  //  <-- END
