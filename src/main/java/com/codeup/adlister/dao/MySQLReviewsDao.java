@@ -24,13 +24,13 @@ public class MySQLReviewsDao implements Reviews{
             throw new RuntimeException("Error connecting to DB (MySQLReviewsDao");
         }
     }
-
+    // TEST
     // OVR
     @Override
     public List<Review> all() {
         PreparedStatement ps = null;
         try {
-            ps = connection.prepareStatement("SELECT * FROM tech_tut_db.Tech_Tut_Reviews");
+            ps = connection.prepareStatement("SELECT * FROM Tech_Tut_Reviews");
             ResultSet rs = ps.executeQuery();
             return createReviewsFromRS(rs);
         } catch (SQLException e) {
