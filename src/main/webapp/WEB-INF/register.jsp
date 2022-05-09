@@ -24,6 +24,18 @@
                 <input id="email" name="email" class="form-control" type="text">
             </div>
             <div class="form-group">
+                <label for="gh-url">GitHub</label>
+                <input id="gh-url" name="gh-url" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="profile-pix-url">Profile Picture URL</label>
+                <input id="profile-pix-url" name="profile-pix-url" class="form-control" type="text">
+            </div>
+            <div class="form-group">
+                <label for="path">Path(Not Required)</label>
+                <input id="path" name="path" class="form-control" type="text">
+            </div>
+            <div class="form-group">
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
