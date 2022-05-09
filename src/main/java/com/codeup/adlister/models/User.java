@@ -3,15 +3,25 @@ package com.codeup.adlister.models;
 import com.codeup.adlister.util.Password;
 
 public class User {
+
+    // F
     private long id;
     private String username;
     private String email;
     private String password;
     private String ghUrl;
+<<<<<<< HEAD
     private String profile_pix_url;
     private String path;
+=======
+    private String profilePixUrl;
+    private String careerPath;
+>>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
 
+    // CON
+    // 1
     public User() {}
+<<<<<<< HEAD
 
     public User(String username, String email, String password, String ghUrl, String profilePixUrl, String path) {
         this.username = username;
@@ -21,15 +31,35 @@ public class User {
         this.profile_pix_url = profilePixUrl;
         this.path = path;
 
-    }
-
-    public User(long id, String username, String email, String password) {
+=======
+    // 2
+    public User(long id, String username, String email, String password, String ghUrl, String profilePixUrl, String careerPath) {
         this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.ghUrl = ghUrl;
+        this.profilePixUrl = profilePixUrl;
+        this.careerPath = careerPath;
+>>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
+    }
+    // 3
+    public User(long id, String username, String email, String password, String profilePixUrl) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.profilePixUrl = profilePixUrl;
+
+    }
+    // 4
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
+<<<<<<< HEAD
     public User(long id, String username, String email, String password, String ghUrl, String profilePixUrl, String path) {
         this.id = id;
         this.username = username;
@@ -41,37 +71,45 @@ public class User {
     }
 
 
+=======
+    // GETS
+>>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
     public long getId() {
         return id;
     }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
     }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getEmail() {
         return email;
     }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
+    public String getGhUrl() {
+        return ghUrl;
+    }
+    public String getProfilePixUrl() {
+        return profilePixUrl;
+    }
+    public String getCareerPath() {
+        return careerPath;
+    }
 
+    // SETS
+    public void setId(long id) {
+        this.id = id;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public void setPassword(String password) {
         this.password = Password.hash(password);
     }
+<<<<<<< HEAD
 
     public String getGhUrl() {
         return ghUrl;
@@ -97,3 +135,17 @@ public class User {
         this.path = path;
     }
 }
+=======
+    public void setGhUrl(String ghUrl) {
+        this.ghUrl = ghUrl;
+    }
+    public void setProfilePixUrl(String profilePixUrl) {
+        this.profilePixUrl = profilePixUrl;
+    }
+    public void setCareerPath(String careerPath) {
+        this.careerPath = careerPath;
+    }
+
+
+}  //  <-- END
+>>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
