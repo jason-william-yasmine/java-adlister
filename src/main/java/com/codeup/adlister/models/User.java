@@ -10,18 +10,14 @@ public class User {
     private String email;
     private String password;
     private String ghUrl;
-<<<<<<< HEAD
     private String profile_pix_url;
     private String path;
-=======
     private String profilePixUrl;
     private String careerPath;
->>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
 
     // CON
     // 1
     public User() {}
-<<<<<<< HEAD
 
     public User(String username, String email, String password, String ghUrl, String profilePixUrl, String path) {
         this.username = username;
@@ -31,7 +27,6 @@ public class User {
         this.profile_pix_url = profilePixUrl;
         this.path = path;
 
-=======
     // 2
     public User(long id, String username, String email, String password, String ghUrl, String profilePixUrl, String careerPath) {
         this.id = id;
@@ -41,7 +36,6 @@ public class User {
         this.ghUrl = ghUrl;
         this.profilePixUrl = profilePixUrl;
         this.careerPath = careerPath;
->>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
     }
     // 3
     public User(long id, String username, String email, String password, String profilePixUrl) {
@@ -59,7 +53,6 @@ public class User {
         this.password = password;
     }
 
-<<<<<<< HEAD
     public User(long id, String username, String email, String password, String ghUrl, String profilePixUrl, String path) {
         this.id = id;
         this.username = username;
@@ -71,9 +64,7 @@ public class User {
     }
 
 
-=======
     // GETS
->>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
     public long getId() {
         return id;
     }
@@ -109,7 +100,6 @@ public class User {
     public void setPassword(String password) {
         this.password = Password.hash(password);
     }
-<<<<<<< HEAD
 
     public String getGhUrl() {
         return ghUrl;
@@ -135,7 +125,6 @@ public class User {
         this.path = path;
     }
 }
-=======
     public void setGhUrl(String ghUrl) {
         this.ghUrl = ghUrl;
     }
@@ -148,4 +137,3 @@ public class User {
 
 
 }  //  <-- END
->>>>>>> 2f620ba09bb388280abac90dbf455bdde0528d06
