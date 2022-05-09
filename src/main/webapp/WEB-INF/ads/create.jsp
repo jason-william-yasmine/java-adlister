@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -5,7 +6,12 @@
         <jsp:param name="title" value="Create a new Ad" />
     </jsp:include>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+
+    <%--NAV--%>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+
+    <%--MAIN--%>
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
@@ -20,5 +26,13 @@
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
+
+    <%--FOOT--%>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+
+    <%--SCRIPTS--%>
+    <jsp:include page="/WEB-INF/partials/scripts.jsp" />
+
+
 </body>
 </html>
