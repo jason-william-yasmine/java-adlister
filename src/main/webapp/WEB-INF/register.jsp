@@ -19,8 +19,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <h>
-                        <i class="fa-solid fa-user-gear"></i>
-                        Register
+                        <i class="fa-solid fa-user-gear"></i> Register
                     </h>
                 </div>
             </div>
@@ -30,13 +29,13 @@
 
     <%--MAIN--%>
     <div class="container w-50">
-        <form action="/register" method="post">
+        <form action="/register" method="post" class="mt-4">
             <div class="form-group">
-                <label for="username">Username</label>
+                <label for="username" class="mb-1">Username</label>
                 <input id="username" name="username" class="form-control" type="text">
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
+                <label for="email" class="mb-1">Email</label>
                 <input id="email" name="email" class="form-control" type="text">
             </div>
 <%--            <div class="form-group">--%>
@@ -48,18 +47,34 @@
 <%--                <input id="profile-pix-url" name="profile-pix-url" class="form-control" type="text">--%>
 <%--            </div>--%>
             <div class="form-group">
-                <label for="path">Path(Not Required)</label>
+                <label for="path" class="mb-1">Path(Not Required)</label>
                 <input id="path" name="path" class="form-control" type="text">
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
+                <label for="password" class="mb-1">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
             <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
+                <label for="confirm_password" class="mb-1">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block">
+            <div class="form-group mt-3">
+                <label for="profile-pix-url" class="mb-1">Profile Picture</label>
+                <select id="profile-pix-url" class="form-select mt-3" name="profile-pix-url">
+                    <option selected value="-1">  </option>
+                    <option value="/img/avatars/Black-01.png">Black</option>
+                    <option value="/img/avatars/Blue-01.png">Blue️</option>
+                    <option value="/img/avatars/Brown-01.png">Brown️</option>
+                    <option value="/img/avatars/DarkGreen-01.png">Dark Green️</option>
+                    <option value="/img/avatars/DarkRed-01.png">Dark Red️</option>
+                    <option value="/img/avatars/Green-01.png">Green</option>
+                    <option value="/img/avatars/LightBlue-01.png">Light Blue</option>
+                    <option value="/img/avatars/Orange-01.png">Orange</option>
+                    <option value="/img/avatars/Pink-01.png">Pink</option>
+                    <option value="/img/avatars/Yellow-01.png">Yellow</option>
+                </select>
+            </div>
+            <input type="submit" class="btn btn-block btn-block btn-primary mt-3 w-100">
         </form>
     </div>
 

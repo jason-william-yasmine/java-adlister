@@ -26,7 +26,7 @@
     </header>
 
     <%--MAIN--%>
-    <div class="container">
+    <div class="container w-50">
         <form action="/login" method="POST" class="mt-4">
             <div class="form-group ">
                 <label for="username" class="mb-1">Username</label>
@@ -36,8 +36,9 @@
                 <label for="password" class="mb-1">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
-            <input type="submit" class="btn btn-primary btn-block" value="Log In">
+            <input type="submit" class="btn btn-primary btn-block mt-3 w-100" value="Log In">
         </form>
+        <button class="btn btn-danger btn-block mt-2 w-100" id="btn-register">Register</button>
     </div>
 
     <%--FOOT--%>
