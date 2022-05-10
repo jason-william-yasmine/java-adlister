@@ -40,6 +40,7 @@
     <section id="reviews" class="mt-4" >
         <div class="container">
             <div class="row">
+                <%--LEFT--%>
                 <div class="col-md-9">
                     <%--REVIEWS--%>
                     <%--FOR EACH LOOP WILL REPLACE THE FOLLOWING CARD WITH DB DATA--%>
@@ -100,6 +101,67 @@
                         </div>
                     </div>
                     <%--END OF CARD--%>
+                        <div class="card border-0 mb-5"
+                             style="height: 170px">
+                            <div class="row no-gutters">
+                                <div class="col-sm-3">
+                                    <img src="img/tut-thumbs/YouTube.png"
+                                         alt="Youtube Logo"
+                                         class="img-fluid rounded">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            Tutorial Title
+                                        </div>
+                                        <div class="star-rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        <p class="mt-2">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati perspiciatis praesentium quia sequi. At debitis dolore et illo ipsa officiis optio perferendis placeat quam quas rem repellendus, sapiente totam veniam...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <%--RIGHT--%>
+                <div class="col-md-3">
+                    <!--CARD 01-->
+                    <div class="card text-center bg-primary text-white mb-3">
+                        <div class="card-body">
+                            <h3>Reviews</h3>
+                            <h4 class="display-4">
+                                <i class="fas fa-pencil-alt"></i>
+                                6                                           <%--Replace with C tag--%>
+                            </h4>
+                        </div>
+                    </div>
+                    <!--CARD 02-->
+                    <div class="card text-center bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h3>Categories</h3>
+                            <h4 class="display-4">
+                                <i class="fas fa-folder"></i> 4
+                            </h4>
+                                                                            <%--Replace with drop down selection--%>
+                            <a href="categories.html" class="btn btn-outline-light btn-sm">Select</a>
+                        </div>
+                    </div>
+                    <!--CARD 03-->
+                    <div class="card text-center bg-warning text-white mb-3">
+                        <div class="card-body">
+                            <h3>Users</h3>
+                            <h4 class="display-4">
+                                <i class="fas fa-users"></i> 4
+                            </h4>
+                            <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,6 +177,7 @@
                 <c:out value="${review.tutDescription}" />
             </p>
         </div>
+
     </c:forEach>
 
     <%--FOOT--%>

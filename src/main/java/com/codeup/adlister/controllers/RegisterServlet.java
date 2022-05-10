@@ -17,11 +17,16 @@ public class RegisterServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        // Get data from jsp form
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
-        String profilePixUrl = request.getParameter("profile_pix_url");
+        String ghURL = request.getParameter("gh-url");
+        String profilePixUrl = request.getParameter("profile-pix-url");
+        String path = request.getParameter("path");
+
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
@@ -35,8 +40,9 @@ public class RegisterServlet extends HttpServlet {
         }
 
         // create and save a new user
-        User user = new User(username, email, password);
+        User user = new User(username, email, password, ghURL, profilePixUrl, path);
         DaoFactory.getUsersDao().insert(user);
-        response.sendRedirect("/login");
+        request.getSession().setAttribute("user", user);
+        response.sendRedirect("/profile");
     }
 }

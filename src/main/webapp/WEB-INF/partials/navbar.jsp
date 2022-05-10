@@ -44,6 +44,10 @@
                                 <i class="fas fa-user-circle"></i>
                                 Profile
                             </a>
+                            <a href="/reviews/create" class="dropdown-item">
+                                <i class="fa-solid fa-list"></i>
+                                Add Review
+                            </a>
                             <a href="#" class="dropdown-item">
                                 <i class="fas fa-cog"></i>
                                 Settings

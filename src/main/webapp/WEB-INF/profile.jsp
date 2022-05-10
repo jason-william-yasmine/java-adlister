@@ -8,49 +8,66 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-<%--NAV--%>
-<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+    <%--NAV--%>
+    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 
-<%--MAIN--%>
-<div class="container">
-    <h1>Welcome, ${sessionScope.user.username}!</h1>
-</div>
-
-<%--Shows ads on profile --%>
-
-<c:forEach var="ad" items="${ads}">
-    <c:if test="${sessionScope.user.id eq ad.userId}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-
-            <form action="${pageContext.request.contextPath}/ads/edit/${ad.id}" method="get">
-                <button>Edit Ad</button>
-            </form>
-
-                <%--Delete An Ad --%>
-            <form action="/ads/delete" method="POST">
-                <button>Delete Ad</button>
-                <input type="hidden" name="singleAd" value="${ad.id}">
-            </form>
-
-                <%--Shows the Single ad with extra info --%>
-            <form action="/ads/single" method="get">
-                <button>Click for more details!</button>
-                <input type="hidden" name="singleAd" value="${ad.id}">
-            </form>
-
-
+    <%--HEADER--%>
+    <header id="main-header" class="py-2 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h>
+                        <i class="fa-solid fa-user"></i>
+                        Profile
+                    </h>
+                </div>
+            </div>
         </div>
-    </c:if>
-</c:forEach>
+    </header>
 
 
-<%--FOOT--%>
-<jsp:include page="/WEB-INF/partials/footer.jsp"/>
+    <%--MAIN--%>
+    <div class="container">
+        <h1>Welcome, ${sessionScope.user.username}!</h1>
+    </div>
 
-<%--SCRIPTS--%>
-<jsp:include page="/WEB-INF/partials/scripts.jsp"/>
+    <%--Shows Reviews on profile --%>
+    <c:forEach var="review" items="${reviews}">
+        <c:if test="${sessionScope.user.id eq ad.userId}">
+            <div class="col-md-6">
+                <h2>${ad.title}</h2>
+                <p>${ad.description}</p>
+
+                <form action="${pageContext.request.contextPath}/ads/edit/${ad.id}" method="get">
+                    <button>Edit Ad</button>
+                </form>
+
+                    <%--Delete An Ad --%>
+                <form action="/ads/delete" method="POST">
+                    <button>Delete Ad</button>
+                    <input type="hidden" name="singleAd" value="${ad.id}">
+                </form>
+
+                    <%--Shows the Single ad with extra info --%>
+                <form action="/ads/single" method="get">
+                    <button>Click for more details!</button>
+                    <input type="hidden" name="singleAd" value="${ad.id}">
+                </form>
+
+
+            </div>
+        </c:if>
+    </c:forEach>
+
+
+
+
+
+    <%--FOOT--%>
+    <jsp:include page="/WEB-INF/partials/footer.jsp"/>
+
+    <%--SCRIPTS--%>
+    <jsp:include page="/WEB-INF/partials/scripts.jsp"/>
 
 
 </body>

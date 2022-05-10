@@ -11,9 +11,25 @@
     <%--NAV--%>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
+
+
+    <%--HEADER--%>
+    <header id="main-header" class="py-2 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h>
+                        <i class="fa-solid fa-user-gear"></i>
+                        Register
+                    </h>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
     <%--MAIN--%>
-    <div class="container">
-        <h1>Please fill in your information.</h1>
+    <div class="container w-50">
         <form action="/register" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -22,6 +38,18 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" name="email" class="form-control" type="text">
+            </div>
+<%--            <div class="form-group">--%>
+<%--                <label for="gh-url">GitHub</label>--%>
+<%--                <input id="gh-url" name="gh-url" class="form-control" type="text">--%>
+<%--            </div>--%>
+<%--            <div class="form-group">--%>
+<%--                <label for="profile-pix-url">Profile Picture URL</label>--%>
+<%--                <input id="profile-pix-url" name="profile-pix-url" class="form-control" type="text">--%>
+<%--            </div>--%>
+            <div class="form-group">
+                <label for="path">Path(Not Required)</label>
+                <input id="path" name="path" class="form-control" type="text">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
