@@ -22,7 +22,7 @@ public class CreateReviewServlet extends HttpServlet {
 
         req.getRequestDispatcher("/WEB-INF/reviews/create.jsp").forward(req, resp);
     }
-
+//
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 

@@ -50,6 +50,7 @@ public class Review {
         this.reviewComments = reviewComments;
         this.reviewName = reviewName;
     }
+    //
 
     public Review(int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String tutCat, String reviewName, String reviewComments, int reviewViews, int reviewUpVotes) {
         this.userRating = userRating;
@@ -63,6 +64,7 @@ public class Review {
         this.reviewViews = reviewViews;
         this.reviewUpVotes = reviewUpVotes;
     }
+    //
 
     // 4;
     public Review(long id,

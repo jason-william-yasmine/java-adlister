@@ -66,7 +66,7 @@ public class MySQLReviewsDao implements Reviews{
             throw new RuntimeException("Error creating a new review.", e);
         }
     }
-
+//
     @Override
     public Review getReviewById(long id) {
         String q = "SELECT * FROM tech_tut_db.Tech_Tut_Reviews WHERE id = ? LIMIT 1";
