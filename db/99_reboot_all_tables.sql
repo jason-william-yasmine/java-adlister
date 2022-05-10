@@ -10,7 +10,7 @@ CREATE TABLE users (
                        email           varchar(255) NOT NULL UNIQUE,
                        password        varchar(255) NOT NULL,
                        gh_url          varchar(400) UNIQUE,
-                       profile_pix_url varchar(255) NOT NULL,
+                       profile_pix_url varchar(255),
                        path            varchar(255) comment 'User''s current education or training path and focus',
                        PRIMARY KEY (id));
 INSERT INTO users (username, email, password, gh_url, profile_pix_url, path)
