@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -16,7 +17,7 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         // Get data from jsp form
         String username = request.getParameter("username");
@@ -26,15 +27,20 @@ public class RegisterServlet extends HttpServlet {
         String avatar = request.getParameter("avatar");
 
 
+        User user1 = DaoFactory.getUsersDao().findByUsername(username);
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
-            || email.isEmpty()
-            || password.isEmpty()
-            || (! password.equals(passwordConfirmation));
+                || email.isEmpty()
+                || password.isEmpty()
+                || (! password.equals(passwordConfirmation))
+                || (user1 != null);
+
+        System.out.println(user1);
 
         if (inputHasErrors) {
-            response.sendRedirect("/register");
+            request.getSession().setAttribute("registerUsername", username);
+            response.sendRedirect("/register?error");
             return;
         }
 
