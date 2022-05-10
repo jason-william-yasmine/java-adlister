@@ -35,7 +35,7 @@
                     </div>
                 <%--Tut Owner--%>
                     <div class="form-group mt-3">
-                        <label for="tut-thumb-logo" class="mb-1">Rating</label>
+                        <label for="tut-thumb-logo" class="mb-1">Where Tutorial Comes From</label>
                         <select id="tut-thumb-logo" class="form-select mt-3" name="tut-thumb-logo">
                             <option selected>  </option>
                             <option
