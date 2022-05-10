@@ -36,6 +36,7 @@ public class LoginServlet extends HttpServlet {
 
 //  WILL NOT WORK WHILE passwords are Not Hashed
 //        boolean validAttempt = Password.check(password, user.getPassword());
+        // REMOVE THIS
         boolean validAttempt = password.equals(user.getPassword());
 
         if (validAttempt) {
