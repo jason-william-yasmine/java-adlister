@@ -101,6 +101,33 @@
                         </div>
                     </div>
                     <%--END OF CARD--%>
+                        <div class="card border-0 mb-5"
+                             style="height: 170px">
+                            <div class="row no-gutters">
+                                <div class="col-sm-3">
+                                    <img src="img/tut-thumbs/YouTube.png"
+                                         alt="Youtube Logo"
+                                         class="img-fluid rounded">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            Tutorial Title
+                                        </div>
+                                        <div class="star-rating">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                        <p class="mt-2">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati perspiciatis praesentium quia sequi. At debitis dolore et illo ipsa officiis optio perferendis placeat quam quas rem repellendus, sapiente totam veniam...
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <%--RIGHT--%>
                 <div class="col-md-3">

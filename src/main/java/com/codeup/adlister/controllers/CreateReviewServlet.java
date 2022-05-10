@@ -27,8 +27,8 @@ public class CreateReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         // Get data from jsp form
-        long userReviewId = 1;
-        int tutRating = Integer.parseInt(req.getParameter("tut-rating"));
+//        long userReviewId = Long.parseLong(req.getParameter("user_review_id"));
+        int userRating = Integer.parseInt(req.getParameter("tut-rating"));
         String tutUrl = req.getParameter("tut-url");
         String tutThumbLogo = req.getParameter("tut-thumb-logo");
         String tutDescription = req.getParameter("tut-description");
@@ -39,8 +39,8 @@ public class CreateReviewServlet extends HttpServlet {
 
         // validate input
         boolean inputHasErrors = revName.isEmpty() ||
-                tutUrl.isEmpty() || tutRating < 0 || tutDescription.isEmpty() ||
-                tutReview.isEmpty() || tutCat.isEmpty();
+                tutUrl.isEmpty() || userRating < 0 || tutDescription.isEmpty() ||
+                tutCat.isEmpty();
 
         if (inputHasErrors) {
             resp.sendRedirect("/reviews/create");
@@ -48,7 +48,7 @@ public class CreateReviewServlet extends HttpServlet {
         }
 
         // Create and Save new Review
-        Review review = new Review(userReviewId, tutRating, tutUrl, tutThumbLogo, tutDescription, tutCost, tutCat, tutReview, revName);
+        Review review = new Review(userRating, tutUrl, tutThumbLogo, tutDescription, tutCost, tutCat, tutReview, revName);
         DaoFactory.getReviewsDao().insert(review);
         req.getSession().setAttribute("review", review);
         resp.sendRedirect("/profile");
