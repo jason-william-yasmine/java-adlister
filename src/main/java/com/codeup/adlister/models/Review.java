@@ -10,7 +10,10 @@ public class Review {
     private String tutThumbUrl;
     private String tutDescription;
     private double tutCost;
+    private String tutCat;
     private String reviewName;
+    private String reviewComments;
+    // Below, not needed
     private int reviewViews;
     private int reviewUpVotes;
 
@@ -19,7 +22,7 @@ public class Review {
     public Review() {
     }
     // 2
-    public Review(long id, long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String reviewName, int reviewViews, int reviewUpVotes) {
+    public Review(long id, long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String tutCat, String reviewName, String reviewComments, int reviewViews, int reviewUpVotes) {
         this.id = id;
         this.userReviewId = userReviewId;
         this.userRating = userRating;
@@ -27,21 +30,36 @@ public class Review {
         this.tutThumbUrl = tutThumbUrl;
         this.tutDescription = tutDescription;
         this.tutCost = tutCost;
+        this.tutCat = tutCat;
         this.reviewName = reviewName;
+        this.reviewComments = reviewComments;
         this.reviewViews = reviewViews;
         this.reviewUpVotes = reviewUpVotes;
     }
     // 3
-    public Review(long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String reviewName, int reviewViews, int reviewUpVotes) {
+    public Review(long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String tutCat, String reviewComments, String reviewName) {
         this.userReviewId = userReviewId;
         this.userRating = userRating;
         this.tutUrl = tutUrl;
         this.tutThumbUrl = tutThumbUrl;
         this.tutDescription = tutDescription;
         this.tutCost = tutCost;
+        this.tutCat = tutCat;
+        this.reviewComments = reviewComments;
         this.reviewName = reviewName;
-        this.reviewViews = reviewViews;
-        this.reviewUpVotes = reviewUpVotes;
+    }
+    // 4;
+    public Review(long id,
+                  long user_review_id,
+                  String user_review,
+                  int user_rating,
+                  String tut_url,
+                  String tut_thumb_url,
+                  String tut_description,
+                  double tut_cost,
+                  String review_title,
+                  int review_views,
+                  int review_upvotes) {
     }
 
 
@@ -66,6 +84,12 @@ public class Review {
     }
     public double getTutCost() {
         return tutCost;
+    }
+    public String getTutCat() {
+        return tutCat;
+    }
+    public String getReviewComments() {
+        return reviewComments;
     }
     public String getReviewName() {
         return reviewName;
@@ -98,6 +122,12 @@ public class Review {
     }
     public void setTutCost(double tutCost) {
         this.tutCost = tutCost;
+    }
+    public void setTutCat(String tutCat) {
+        this.tutCat = tutCat;
+    }
+    public void setReviewComments(String reviewComments) {
+        this.reviewComments = reviewComments;
     }
     public void setReviewName(String reviewName) {
         this.reviewName = reviewName;

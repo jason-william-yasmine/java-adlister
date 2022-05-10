@@ -108,14 +108,15 @@ public class MySQLReviewsDao implements Reviews{
         return new Review(
                 rs.getLong("id"),
                 rs.getLong("user_review_id"),
+                rs.getString("user_review"),
                 rs.getInt("user_rating"),
                 rs.getString("tut_url"),
                 rs.getString("tut_thumb_url"),
                 rs.getString("tut_description"),
                 rs.getDouble("tut_cost"),
-                rs.getString("review_name"),
+                rs.getString("review_title"),
                 rs.getInt("review_views"),
-                rs.getInt("review_up_votes")
+                rs.getInt("review_upvotes")
         );
     }
 

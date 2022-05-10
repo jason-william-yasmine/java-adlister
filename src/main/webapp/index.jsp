@@ -40,6 +40,7 @@
     <section id="reviews" class="mt-4" >
         <div class="container">
             <div class="row">
+                <%--LEFT--%>
                 <div class="col-md-9">
                     <%--REVIEWS--%>
                     <%--FOR EACH LOOP WILL REPLACE THE FOLLOWING CARD WITH DB DATA--%>
@@ -101,6 +102,40 @@
                     </div>
                     <%--END OF CARD--%>
                 </div>
+                <%--RIGHT--%>
+                <div class="col-md-3">
+                    <!--CARD 01-->
+                    <div class="card text-center bg-primary text-white mb-3">
+                        <div class="card-body">
+                            <h3>Reviews</h3>
+                            <h4 class="display-4">
+                                <i class="fas fa-pencil-alt"></i>
+                                6                                           <%--Replace with C tag--%>
+                            </h4>
+                        </div>
+                    </div>
+                    <!--CARD 02-->
+                    <div class="card text-center bg-success text-white mb-3">
+                        <div class="card-body">
+                            <h3>Categories</h3>
+                            <h4 class="display-4">
+                                <i class="fas fa-folder"></i> 4
+                            </h4>
+                                                                            <%--Replace with drop down selection--%>
+                            <a href="categories.html" class="btn btn-outline-light btn-sm">Select</a>
+                        </div>
+                    </div>
+                    <!--CARD 03-->
+                    <div class="card text-center bg-warning text-white mb-3">
+                        <div class="card-body">
+                            <h3>Users</h3>
+                            <h4 class="display-4">
+                                <i class="fas fa-users"></i> 4
+                            </h4>
+                            <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -115,6 +150,7 @@
                 <c:out value="${review.tutDescription}" />
             </p>
         </div>
+
     </c:forEach>
 
     <%--FOOT--%>
