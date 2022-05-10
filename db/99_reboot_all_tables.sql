@@ -6,7 +6,7 @@ TRUNCATE users;
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
                        id              int(10) NOT NULL AUTO_INCREMENT,
-                       username        varchar(10) NOT NULL UNIQUE,
+                       username        varchar(100) NOT NULL UNIQUE,
                        email           varchar(255) NOT NULL UNIQUE,
                        password        varchar(255) NOT NULL,
                        gh_url          varchar(400) UNIQUE,

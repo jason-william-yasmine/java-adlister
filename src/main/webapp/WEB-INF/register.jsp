@@ -28,11 +28,13 @@
 
 
     <%--MAIN--%>
+
+    <h1 class="d-flex justify-content-center"><c:if test="${param.error != null}">Something went wrong, try again!!!</c:if></h1>
     <div class="container w-50">
         <form action="/register" method="post" class="mt-4">
             <div class="form-group">
                 <label for="username" class="mb-1">Username</label>
-                <input id="username" name="username" class="form-control" type="text">
+                <input id="username" name="username" class="form-control" type="text" value="${sessionScope.registerUsername}">
             </div>
             <div class="form-group">
                 <label for="email" class="mb-1">Email</label>
