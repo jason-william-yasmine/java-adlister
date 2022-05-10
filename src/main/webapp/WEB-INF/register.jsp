@@ -79,7 +79,7 @@
             <input type="submit" class="btn btn-block btn-block btn-primary mt-3 w-100">
         </form>
     </div>
-
+//
     <%--FOOT--%>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 
