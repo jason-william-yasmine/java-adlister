@@ -17,6 +17,8 @@ public class Review {
     private int reviewViews;
     private int reviewUpVotes;
 
+    private String usersRev;
+
     // CON
     // 1
     public Review() {
@@ -48,6 +50,22 @@ public class Review {
         this.reviewComments = reviewComments;
         this.reviewName = reviewName;
     }
+    //
+
+    public Review(int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String tutCat, String reviewName, String reviewComments, int reviewViews, int reviewUpVotes) {
+        this.userRating = userRating;
+        this.tutUrl = tutUrl;
+        this.tutThumbUrl = tutThumbUrl;
+        this.tutDescription = tutDescription;
+        this.tutCost = tutCost;
+        this.tutCat = tutCat;
+        this.reviewName = reviewName;
+        this.reviewComments = reviewComments;
+        this.reviewViews = reviewViews;
+        this.reviewUpVotes = reviewUpVotes;
+    }
+    //
+
     // 4;
     public Review(long id,
                   long user_review_id,
@@ -60,6 +78,17 @@ public class Review {
                   String review_title,
                   int review_views,
                   int review_upvotes) {
+    }
+
+    public Review(int userRating, String tutUrl, String tutThumbLogo, String tutDescription, double tutCost, String tutCat, String tutReview, String revName) {
+        this.userRating = userRating;
+        this.tutUrl = tutUrl;
+        this.tutThumbUrl = tutThumbLogo;
+        this.tutDescription = tutDescription;
+        this.tutCost = tutCost;
+        this.tutCat = tutCat;
+        this.reviewName = revName;
+        this.usersRev = tutReview;
     }
 
 
@@ -101,6 +130,13 @@ public class Review {
         return reviewUpVotes;
     }
 
+
+    public String getUsersRev() {
+        return usersRev;
+    }
+
+
+
     // SETS
     public void setId(long id) {
         this.id = id;
@@ -137,6 +173,10 @@ public class Review {
     }
     public void setReviewUpVotes(int reviewUpVotes) {
         this.reviewUpVotes = reviewUpVotes;
+    }
+
+    public void setUsersRev(String usersRev) {
+        this.usersRev = usersRev;
     }
 
 }  //  <--END
