@@ -16,10 +16,8 @@ public class IndexHomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("reviews", DaoFactory.getReviewsDao().all());
 
-        List<Review> reviews = DaoFactory.getReviewsDao().all();
-        System.out.println(reviews);
+        req.setAttribute("reviews", DaoFactory.getReviewsDao().all());
 
         req.getRequestDispatcher("index-home.jsp").forward(req, resp);
     }

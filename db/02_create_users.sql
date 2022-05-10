@@ -11,19 +11,17 @@ DROP TABLE IF EXISTS users;
 -- 2. Build table:
 CREATE TABLE users (
        id              int(10) NOT NULL AUTO_INCREMENT,
-       username        varchar(10) NOT NULL UNIQUE,
+       username        varchar(255) NOT NULL UNIQUE,
        email           varchar(255) NOT NULL UNIQUE,
        password        varchar(255) NOT NULL,
-       gh_url          varchar(400) UNIQUE,
-       profile_pix_url varchar(255),
-       path            varchar(255) comment 'User''s current education or training path and focus',
+       avatar          varchar(255),
        PRIMARY KEY (id));
 
 -- 3. Seed Table:
-INSERT INTO users (username, email, password, gh_url, profile_pix_url, path)
-VALUES ('bugs', 'bugs@toon.com', '1234', null, '/img/avatars/black-01.png', null),
-       ('daffy', 'daffy@toon.com', '1234', null, '/img/avatars/blue-01.png', null),
-       ('yosemite', 'yosemite@toon.com', '1234', null, '/img/avatars/brown-01.png', null)
+INSERT INTO users (username, email, password, avatar)
+VALUES ('bugs', 'bugs@toon.com', '1234', '/img/avatars/black-01.png'),
+       ('daffy', 'daffy@toon.com', '1234', '/img/avatars/blue-01.png'),
+       ('yosemite', 'yosemite@toon.com', '1234', '/img/avatars/brown-01.png')
 ;
 
 -- 4. Checks

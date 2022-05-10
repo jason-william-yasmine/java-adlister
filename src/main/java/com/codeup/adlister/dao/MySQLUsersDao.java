@@ -6,8 +6,11 @@ import com.mysql.cj.jdbc.Driver;
 import java.sql.*;
 
 public class MySQLUsersDao implements Users {
+
+    // F
     private Connection connection;
 
+    // CON
     public MySQLUsersDao(Config config) {
 
         try {
@@ -18,11 +21,11 @@ public class MySQLUsersDao implements Users {
                 config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error connecting to the database! MySQLUsersDao()", e);
         }
     }
 
-
+    // OVR
     @Override
     public User findByUsername(String username) {
         String q = "SELECT * FROM users WHERE username = ?";
@@ -39,37 +42,34 @@ public class MySQLUsersDao implements Users {
     }
 
     @Override
-    public Long insert(User user) {
-        String q = "INSERT INTO tech_tut_db.users (username, email, password, gh_url, profile_pix_url, path) VALUES (?, ?, ?, ?, ?, ?)";
+    public Long insert(User u) {
+        String q = "INSERT INTO tech_tut_db.users (username, email, password, avatar) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement s = connection.prepareStatement(q, Statement.RETURN_GENERATED_KEYS);
-            s.setString(1, user.getUsername());
-            s.setString(2, user.getEmail());
-            s.setString(3, user.getPassword());
-            s.setString(4, user.getGhUrl());
-            s.setString(5, user.getProfilePixUrl());
-            s.setString(6, user.getCareerPath() );
+            s.setString(1, u.getUsername());
+            s.setString(2, u.getEmail());
+            s.setString(3, u.getPassword());
+            s.setString(4, u.getAvatar());
+
             s.executeUpdate();
             ResultSet rs = s.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            throw new RuntimeException("Error creating new user (insert()) ", e);
         }
     }
 
+    // HELPER METHS
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
             rs.getString("username"),
             rs.getString("email"),
             rs.getString("password"),
-            rs.getString("gh_url"),
-                rs.getString("profile_pix_url"),
-                rs.getString("path")
+            rs.getString("avatar")
         );
     }
 

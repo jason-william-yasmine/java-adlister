@@ -4,25 +4,25 @@ USE tech_tut_db;
 -- "Command + Enter", then "Enter" again will allow you to run that SQL statement
 
 -- 1. The following two statements will allow us to drop and "zero" out our tables if they exist:
-TRUNCATE user_profile_pixs;
+TRUNCATE review_cats;
 
-DROP TABLE IF EXISTS user_profile_pixs;
+DROP TABLE IF EXISTS review_cats;
 
 -- 2. Build table:
-CREATE TABLE user_profile_pixs (
-        user_id        int(10) NOT NULL,
-        profile_pix_id int(10) NOT NULL);
+CREATE TABLE review_cats (
+     tutID      int(10) NOT NULL,
+     catsID     int(10) NOT NULL);
 
 -- 3. Seed Table
-INSERT INTO user_profile_pixs (user_id, profile_pix_id)
+INSERT INTO review_cats (tutID, catsID)
 VALUES (1, 1),
        (2, 2),
        (3, 3)
 ;
 
 -- 4. Checks
-DESC user_profile_pixs;
+DESC review_cats;
 
-SHOW CREATE TABLE user_profile_pixs;
+SHOW CREATE TABLE review_cats;
 
-SELECT * FROM user_profile_pixs;
+SELECT * FROM review_cats;
