@@ -4,9 +4,9 @@ USE tech_tut_db;
 -- "Command + Enter", then "Enter" again will allow you to run that SQL statement
 
 -- 1. The following two statements will allow us to drop and "zero" out our tables if they exist:
-TRUNCATE tech_tut_reviews;
+TRUNCATE Tech_Tut_Reviews;
 
-DROP TABLE IF EXISTS tech_tut_reviews;
+DROP TABLE IF EXISTS Tech_Tut_Reviews;
 
 -- 2. Build table:
 CREATE TABLE Tech_Tut_Reviews (
@@ -25,7 +25,7 @@ CREATE TABLE Tech_Tut_Reviews (
 ;
 
 -- 3. Seed Table:
-INSERT INTO tech_tut_reviews(user_review_id, user_review, user_rating, tut_url, tut_thumb_url, tut_description, tut_cost, review_title, review_views, review_upvotes)
+INSERT INTO Tech_Tut_Reviews(user_review_id, user_review, user_rating, tut_url, tut_thumb_url, tut_description, tut_cost, review_title, review_views, review_upvotes)
 VALUES (3,
         'I''m the meanest, roughest, toughest hombre that''s ever crossed the Rio Grande - and I ain''t o namby-bamby!',
         3,
@@ -62,9 +62,9 @@ VALUES (3,
 ;
 
 -- 4. Checks
-DESC tech_tut_reviews;
+DESC Tech_Tut_Reviews;
 
-SHOW CREATE TABLE tech_tut_reviews;
+SHOW CREATE TABLE Tech_Tut_Reviews;
 
-SELECT * FROM tech_tut_reviews;
+SELECT * FROM Tech_Tut_Reviews;
 
