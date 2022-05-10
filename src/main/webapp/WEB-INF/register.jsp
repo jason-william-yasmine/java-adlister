@@ -80,7 +80,7 @@
         </form>
     </div>
 
-
+//
     <%--FOOT--%>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />
 
