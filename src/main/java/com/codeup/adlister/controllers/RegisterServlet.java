@@ -31,13 +31,11 @@ public class RegisterServlet extends HttpServlet {
         User user1 = DaoFactory.getUsersDao().findByUsername(username);
 
         // validate input
-        boolean allEntriesPresent = true;
         boolean inputHasErrors = username.isEmpty()
             || email.isEmpty()
             || password.isEmpty()
             || (! password.equals(passwordConfirmation))
-            || (user1 != null)
-            || !allEntriesPresent;
+            || (user1 != null);
 
         System.out.println(user1);
 
