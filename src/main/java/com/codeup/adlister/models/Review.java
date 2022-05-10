@@ -4,179 +4,79 @@ public class Review {
 
     // F
     private long id;
-    private long userReviewId;
-    private int userRating;
-    private String tutUrl;
-    private String tutThumbUrl;
-    private String tutDescription;
-    private double tutCost;
-    private String tutCat;
-    private String reviewName;
-    private String reviewComments;
-    // Below, not needed
-    private int reviewViews;
-    private int reviewUpVotes;
+    private long uid;
+    private String title;
+    private String review;
+    private int rating;
+    private String tutorialURL;
+    private String thumb;
+    private String cat;
 
-    private String usersRev;
 
     // CON
-    // 1
-    public Review() {
-    }
-    // 2
-    public Review(long id, long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String tutCat, String reviewName, String reviewComments, int reviewViews, int reviewUpVotes) {
+    public Review(long id, long uid, String title, String review, int rating, String tutorialURL, String thumb, String cat) {
         this.id = id;
-        this.userReviewId = userReviewId;
-        this.userRating = userRating;
-        this.tutUrl = tutUrl;
-        this.tutThumbUrl = tutThumbUrl;
-        this.tutDescription = tutDescription;
-        this.tutCost = tutCost;
-        this.tutCat = tutCat;
-        this.reviewName = reviewName;
-        this.reviewComments = reviewComments;
-        this.reviewViews = reviewViews;
-        this.reviewUpVotes = reviewUpVotes;
+        this.uid = uid;
+        this.title = title;
+        this.review = review;
+        this.rating = rating;
+        this.tutorialURL = tutorialURL;
+        this.thumb = thumb;
+        this.cat = cat;
     }
-    // 3
-    public Review(long userReviewId, int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String tutCat, String reviewComments, String reviewName) {
-        this.userReviewId = userReviewId;
-        this.userRating = userRating;
-        this.tutUrl = tutUrl;
-        this.tutThumbUrl = tutThumbUrl;
-        this.tutDescription = tutDescription;
-        this.tutCost = tutCost;
-        this.tutCat = tutCat;
-        this.reviewComments = reviewComments;
-        this.reviewName = reviewName;
+    public Review(int uid, String title, String reviewComment, int rating, String tutorialURL, String cat) {
     }
-    //
-
-    public Review(int userRating, String tutUrl, String tutThumbUrl, String tutDescription, double tutCost, String tutCat, String reviewName, String reviewComments, int reviewViews, int reviewUpVotes) {
-        this.userRating = userRating;
-        this.tutUrl = tutUrl;
-        this.tutThumbUrl = tutThumbUrl;
-        this.tutDescription = tutDescription;
-        this.tutCost = tutCost;
-        this.tutCat = tutCat;
-        this.reviewName = reviewName;
-        this.reviewComments = reviewComments;
-        this.reviewViews = reviewViews;
-        this.reviewUpVotes = reviewUpVotes;
-    }
-    //
-
-    // 4;
-    public Review(long id,
-                  long user_review_id,
-                  String user_review,
-                  int user_rating,
-                  String tut_url,
-                  String tut_thumb_url,
-                  String tut_description,
-                  double tut_cost,
-                  String review_title,
-                  int review_views,
-                  int review_upvotes) {
-    }
-
-    public Review(int userRating, String tutUrl, String tutThumbLogo, String tutDescription, double tutCost, String tutCat, String tutReview, String revName) {
-        this.userRating = userRating;
-        this.tutUrl = tutUrl;
-        this.tutThumbUrl = tutThumbLogo;
-        this.tutDescription = tutDescription;
-        this.tutCost = tutCost;
-        this.tutCat = tutCat;
-        this.reviewName = revName;
-        this.usersRev = tutReview;
-    }
-
 
     // GETS
     public long getId() {
         return id;
     }
-    public long getUserReviewId() {
-        return userReviewId;
+    public long getUid() {
+        return uid;
     }
-    public int getUserRating() {
-        return userRating;
+    public String getTitle() {
+        return title;
     }
-    public String getTutUrl() {
-        return tutUrl;
+    public String getReview() {
+        return review;
     }
-    public String getTutThumbUrl() {
-        return tutThumbUrl;
+    public int getRating() {
+        return rating;
     }
-    public String getTutDescription() {
-        return tutDescription;
+    public String getTutorialURL() {
+        return tutorialURL;
     }
-    public double getTutCost() {
-        return tutCost;
+    public String getThumb() {
+        return thumb;
     }
-    public String getTutCat() {
-        return tutCat;
+    public String getCat() {
+        return cat;
     }
-    public String getReviewComments() {
-        return reviewComments;
-    }
-    public String getReviewName() {
-        return reviewName;
-    }
-    public int getReviewViews() {
-        return reviewViews;
-    }
-    public int getReviewUpVotes() {
-        return reviewUpVotes;
-    }
-
-
-    public String getUsersRev() {
-        return usersRev;
-    }
-
-
 
     // SETS
     public void setId(long id) {
         this.id = id;
     }
-    public void setUserReviewId(long userReviewId) {
-        this.userReviewId = userReviewId;
+    public void setUid(long uid) {
+        this.uid = uid;
     }
-    public void setUserRating(int userRating) {
-        this.userRating = userRating;
+    public void setTitle(String title) {
+        this.title = title;
     }
-    public void setTutUrl(String tutUrl) {
-        this.tutUrl = tutUrl;
+    public void setReview(String review) {
+        this.review = review;
     }
-    public void setTutThumbUrl(String tutThumbUrl) {
-        this.tutThumbUrl = tutThumbUrl;
+    public void setRating(int rating) {
+        this.rating = rating;
     }
-    public void setTutDescription(String tutDescription) {
-        this.tutDescription = tutDescription;
+    public void setTutorialURL(String tutorialURL) {
+        this.tutorialURL = tutorialURL;
     }
-    public void setTutCost(double tutCost) {
-        this.tutCost = tutCost;
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
     }
-    public void setTutCat(String tutCat) {
-        this.tutCat = tutCat;
-    }
-    public void setReviewComments(String reviewComments) {
-        this.reviewComments = reviewComments;
-    }
-    public void setReviewName(String reviewName) {
-        this.reviewName = reviewName;
-    }
-    public void setReviewViews(int reviewViews) {
-        this.reviewViews = reviewViews;
-    }
-    public void setReviewUpVotes(int reviewUpVotes) {
-        this.reviewUpVotes = reviewUpVotes;
-    }
-
-    public void setUsersRev(String usersRev) {
-        this.usersRev = usersRev;
+    public void setCat(String cat) {
+        this.cat = cat;
     }
 
 }  //  <--END

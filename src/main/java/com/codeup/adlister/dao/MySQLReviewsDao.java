@@ -21,16 +21,16 @@ public class MySQLReviewsDao implements Reviews{
                     config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to DB (MySQLReviewsDao");
+            throw new RuntimeException("Error connecting to DB (MySQLReviewsDao())", e);
         }
     }
-    // TEST
+
     // OVR
     @Override
     public List<Review> all() {
         PreparedStatement ps = null;
         try {
-            ps = connection.prepareStatement("SELECT * FROM Tech_Tut_Reviews");
+            ps = connection.prepareStatement("SELECT * FROM reviews");
             ResultSet rs = ps.executeQuery();
             return createReviewsFromRS(rs);
         } catch (SQLException e) {
@@ -39,24 +39,18 @@ public class MySQLReviewsDao implements Reviews{
     }
 
     @Override
-    public Long insert(Review review) {
+    public Long insert(Review r) {
         try {
-            String insertQuery = "INSERT INTO tech_tut_db.Tech_Tut_Reviews(" +
-                    "id, user_review_id, user_review, user_rating, tut_url, " +
-                    "tut_thumb_url, tut_description, tut_cost, review_title, " +
-                    "review_views, review_upvotes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO reviews(" +
+                    "uid, title, review, rating, tutorialURL, thumb, cat) " +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, review.getId());
-            stmt.setLong(2, review.getUserReviewId());
-            stmt.setInt(3, review.getUserRating());
-            stmt.setInt(4, review.getUserRating());
-            stmt.setString(5, review.getTutUrl());
-            stmt.setString(6, review.getTutThumbUrl());
-            stmt.setString(7, review.getTutDescription());
-            stmt.setDouble(8, review.getTutCost());
-            stmt.setString(9, review.getReviewName());
-            stmt.setInt(10, review.getReviewViews());
-            stmt.setInt(11, review.getReviewUpVotes());
+            stmt.setLong(1, r.getUid());
+            stmt.setString(2, r.getTitle());
+            stmt.setString(2, r.getReview());
+            stmt.setString(2, r.getTutorialURL());
+            stmt.setString(2, r.getThumb());
+            stmt.setString(2, r.getCat());
 
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
@@ -66,10 +60,10 @@ public class MySQLReviewsDao implements Reviews{
             throw new RuntimeException("Error creating a new review.", e);
         }
     }
-//
+
     @Override
     public Review getReviewById(long id) {
-        String q = "SELECT * FROM tech_tut_db.Tech_Tut_Reviews WHERE id = ? LIMIT 1";
+        String q = "SELECT * FROM reviews WHERE id = ? LIMIT 1";
         try {
             PreparedStatement s = connection.prepareStatement(q);
             s.setLong(1, id);
@@ -83,12 +77,13 @@ public class MySQLReviewsDao implements Reviews{
         }    }
 
     @Override
-    public void delete(Review review) {
+    public void delete(Review r) {
         try {
-            String deleteQuery = "DELETE FROM tech_tut_db.Tech_Tut_Reviews WHERE id = ?";
+            String deleteQuery = "DELETE FROM reviews WHERE id = ?";
             PreparedStatement ps = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, review.getId());
+            ps.setLong(1, r.getId());
             ps.executeUpdate();
+            
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -107,16 +102,13 @@ public class MySQLReviewsDao implements Reviews{
     private Review extractReview(ResultSet rs) throws SQLException {
         return new Review(
                 rs.getLong("id"),
-                rs.getLong("user_review_id"),
-                rs.getString("user_review"),
-                rs.getInt("user_rating"),
-                rs.getString("tut_url"),
-                rs.getString("tut_thumb_url"),
-                rs.getString("tut_description"),
-                rs.getDouble("tut_cost"),
-                rs.getString("review_title"),
-                rs.getInt("review_views"),
-                rs.getInt("review_upvotes")
+                rs.getLong("uid"),
+                rs.getString("title"),
+                rs.getString("review"),
+                rs.getInt("rating"),
+                rs.getString("tutorialURL"),
+                rs.getString("thumb"),
+                rs.getString("cat")
         );
     }
 

@@ -30,38 +30,30 @@
     <%--MAIN--%>
     <div class="container w-50">
         <form action="/register" method="post" class="mt-4">
+            <%--username--%>
             <div class="form-group">
                 <label for="username" class="mb-1">Username</label>
                 <input id="username" name="username" class="form-control" type="text">
             </div>
+            <%--email--%>
             <div class="form-group">
                 <label for="email" class="mb-1">Email</label>
-                <input id="email" name="email" class="form-control" type="text">
+                <input id="email" name="email" class="form-control" type="email">
             </div>
-<%--            <div class="form-group">--%>
-<%--                <label for="gh-url">GitHub</label>--%>
-<%--                <input id="gh-url" name="gh-url" class="form-control" type="text">--%>
-<%--            </div>--%>
-<%--            <div class="form-group">--%>
-<%--                <label for="profile-pix-url">Profile Picture URL</label>--%>
-<%--                <input id="profile-pix-url" name="profile-pix-url" class="form-control" type="text">--%>
-<%--            </div>--%>
-            <div class="form-group">
-                <label for="path" class="mb-1">Path(Not Required)</label>
-                <input id="path" name="path" class="form-control" type="text">
-            </div>
+            <%--password--%>
             <div class="form-group">
                 <label for="password" class="mb-1">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
             <div class="form-group">
-                <label for="confirm_password" class="mb-1">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" class="form-control" type="password">
+                <label for="confirm-password" class="mb-1">Confirm Password</label>
+                <input id="confirm-password" name="confirm-password" class="form-control" type="password">
             </div>
+            <%--avatar--%>
             <div class="form-group mt-3">
-                <label for="profile-pix-url" class="mb-1">Profile Picture</label>
-                <select id="profile-pix-url" class="form-select mt-3" name="profile-pix-url">
-                    <option selected value="-1">  </option>
+                <label for="avatar" class="mb-1">Profile Picture</label>
+                <select id="avatar" class="form-select mt-3" name="avatar">
+                    <option selected value="/img/avatars/Black-01.png">  </option>
                     <option value="/img/avatars/Black-01.png">Black</option>
                     <option value="/img/avatars/Blue-01.png">Blue️</option>
                     <option value="/img/avatars/Brown-01.png">Brown️</option>

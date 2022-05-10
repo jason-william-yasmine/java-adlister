@@ -44,19 +44,19 @@
                 <div class="col-md-9">
                     <%--REVIEWS--%>
                     <%--FOR EACH LOOP WILL REPLACE THE FOLLOWING CARD WITH DB DATA--%>
-                        <c:forEach var="review" items="reviews">
+                        <c:forEach var="review" items="${reviews}">
                     <div class="card border-0 mb-5"
                          style="height: 170px">
                         <div class="row no-gutters">
                             <div class="col-sm-3">
-                                <img src="${review.tut_thumb_url}"
-                                     alt="${review.tut_description}"
+                                <img src="${review.thumb}"
+                                     alt="${review.review}"
                                      class="img-fluid rounded">
                             </div>
                             <div class="col-sm-9">
                                 <div class="card-body">
                                     <div class="card-title">
-                                        Tutorial Title: ${review_title}
+                                        Tutorial Title: ${review.title}
                                     </div>
                                     <div class="star-rating">
                                         <i class="fa-solid fa-star"></i>

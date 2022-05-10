@@ -28,15 +28,15 @@
     <%--MAIN--%>
     <div class="container w-50">
             <form action="/reviews/create" method="post" class="mt-4">
-                <%--Review Name--%>
+                <%--title--%>
                     <div class="form-group">
-                        <label for="rev-name" class="mb-1">Review Name</label>
-                        <input id="rev-name" name="rev-name" class="form-control" type="text">
+                        <label for="title" class="mb-1">Name of Review</label>
+                        <input id="title" name="title" class="form-control" type="text">
                     </div>
-                <%--Tut Owner--%>
+                <%--thumb--%>
                     <div class="form-group mt-3">
-                        <label for="tut-thumb-logo" class="mb-1">Where Tutorial Comes From</label>
-                        <select id="tut-thumb-logo" class="form-select mt-3" name="tut-thumb-logo">
+                        <label for="thumb" class="mb-1">Where Tutorial Comes From</label>
+                        <select id="thumb" class="form-select mt-3" name="thumb">
                             <option selected>  </option>
                             <option
                                     value="/img/tut-thumbs/BitDegree.png">
@@ -104,20 +104,15 @@
                             </option>
                         </select>
                     </div>
-                <%--Tut URL--%>
+                <%--tutorialURL--%>
                     <div class="form-group mt-3">
-                        <label for="tut-url" class="mb-1">Enter URL for Tutorial</label>
-                        <input type="text" id="tut-url" class="form-control" name="tut-url">
+                        <label for="tutorialURL" class="mb-1">Enter URL for Tutorial</label>
+                        <input type="text" id="tutorialURL" class="form-control" name="tutorialURL">
                     </div>
-                <%--Tut Cost--%>
+                <%--rating--%>
                     <div class="form-group mt-3">
-                        <label for="tut-cost" class="mb-1">Cost</label>
-                        <input type="number" step="0.01" id="tut-cost" class="form-control" name="tut-cost">
-                    </div>
-                <%--Tut Rating--%>
-                    <div class="form-group mt-3">
-                        <label for="tut-rating" class="mb-1">Rating</label>
-                        <select id="tut-rating" class="form-select mt-3" name="tut-rating">
+                        <label for="rating" class="mb-1">Rating</label>
+                        <select id="rating" class="form-select mt-3" name="rating">
                             <option selected value="-1">  </option>
                             <option value="0">🙅</option>
                             <option value="1">⭐️</option>
@@ -127,20 +122,15 @@
                             <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
                         </select>
                     </div>
-                <%--Tut Description--%>
+                <%--review--%>
                     <div class="form-group mt-3">
-                        <label for="tut-description" class="mb-1">Description of Tutorial</label>
-                        <textarea id="tut-description" class="form-control" name="tut-description"></textarea>
+                        <label for="review" class="mb-1">Review Comments</label>
+                        <textarea id="review" class="form-control" name="review"></textarea>
                     </div>
-                <%--Review Comments--%>
+                <%--cat--%>
                     <div class="form-group mt-3">
-                        <label for="rev-comments" class="mb-1">User's Review</label>
-                        <textarea id="rev-comments" class="form-control" name="rev-comments"></textarea>
-                    </div>
-                <%--Tut Cats--%>
-                    <div class="form-group mt-3">
-                        <label for="tut-rating" class="mb-1">Category of Tutorial</label>
-                        <select class="form-select" name="tut-cat">
+                        <label for="cat" class="mb-1">Category of Tutorial</label>
+                        <select class="cat" name="cat" id="cat">
                             <option selected> </option>
                             <option value="html">HTML</option>
                             <option value="css">CSS</option>

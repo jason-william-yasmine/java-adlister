@@ -28,10 +28,12 @@
     <%--MAIN--%>
     <div class="container w-50">
         <form action="/login" method="POST" class="mt-4">
+            <%--username--%>
             <div class="form-group ">
                 <label for="username" class="mb-1">Username</label>
                 <input id="username" name="username" class="form-control" type="text">
             </div>
+            <%--password--%>
             <div class="form-group">
                 <label for="password" class="mb-1">Password</label>
                 <input id="password" name="password" class="form-control" type="password">

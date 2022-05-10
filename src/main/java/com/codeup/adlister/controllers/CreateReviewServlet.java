@@ -27,20 +27,19 @@ public class CreateReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         // Get data from jsp form
-//        long userReviewId = Long.parseLong(req.getParameter("user_review_id"));
-        int userRating = Integer.parseInt(req.getParameter("tut-rating"));
-        String tutUrl = req.getParameter("tut-url");
-        String tutThumbLogo = req.getParameter("tut-thumb-logo");
-        String tutDescription = req.getParameter("tut-description");
-        double tutCost = Double.parseDouble(req.getParameter("tut-cost"));
-        String  revName = req.getParameter("rev-name");
-        String tutReview = req.getParameter("rev-comments");
-        String tutCat = req.getParameter("tut-cat");
+        int uid = 1;                            // <-- REPLACE WITH USER SESSION
+        String title = req.getParameter("title");
+        String reviewComment = req.getParameter("review");
+        int rating = Integer.parseInt(req.getParameter("rating"));
+        String tutorialURL = req.getParameter("tutorialURL");
+        String thumb = req.getParameter("thumb");
+        String cat = req.getParameter("cat");
+
 
         // validate input
-        boolean inputHasErrors = revName.isEmpty() ||
-                tutUrl.isEmpty() || userRating < 0 || tutDescription.isEmpty() ||
-                tutCat.isEmpty();
+        boolean inputHasErrors = title.isEmpty() ||
+                tutorialURL.isEmpty() || rating < 0 || reviewComment.isEmpty() ||
+                cat.isEmpty();
 
         if (inputHasErrors) {
             resp.sendRedirect("/reviews/create");
@@ -48,7 +47,7 @@ public class CreateReviewServlet extends HttpServlet {
         }
 
         // Create and Save new Review
-        Review review = new Review(userRating, tutUrl, tutThumbLogo, tutDescription, tutCost, tutCat, tutReview, revName);
+        Review review = new Review(uid, title, reviewComment, rating, tutorialURL, cat);
         DaoFactory.getReviewsDao().insert(review);
         req.getSession().setAttribute("review", review);
         resp.sendRedirect("/profile");
