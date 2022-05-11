@@ -41,23 +41,19 @@
                         </a>
                         <div class="dropdown-menu">
                             <a href="/profile" class="dropdown-item">
-                                <i class="fas fa-user-circle"></i>
-                                Profile
+                                <i class="fas fa-user-circle"></i> Profile
                             </a>
                             <a href="/reviews/create" class="dropdown-item">
-                                <i class="fa-solid fa-list"></i>
-                                Add Review
+                                <i class="fa-solid fa-list"></i> Add Review
                             </a>
                             <a href="#" class="dropdown-item">
-                                <i class="fas fa-cog"></i>
-                                Settings
+                                <i class="fas fa-cog"></i> Settings
                             </a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a href="/logout" class="nav-link">
-                            <i class="fas fa-user-times"></i>
-                            Logout
+                            <i class="fa-solid fa-right-from-bracket"></i> Logout
                         </a>
                     </li>
 
