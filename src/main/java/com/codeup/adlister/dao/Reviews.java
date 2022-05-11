@@ -23,6 +23,10 @@ public interface Reviews {
     // Delete Review
     void delete(Review review);
 
-
-
+    // Edit Review
+    void edit(Review reviewObject, String title, String description, String thumb);
 }
+
+
+
+
