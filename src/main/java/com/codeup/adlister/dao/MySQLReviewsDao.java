@@ -78,15 +78,14 @@ public class MySQLReviewsDao implements Reviews{
         }    }
 
     @Override
-    public void delete(Review r) {
+    public void delete(Review review) {
         try {
             String deleteQuery = "DELETE FROM reviews WHERE id = ?";
-            PreparedStatement ps = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, r.getId());
-            ps.executeUpdate();
-            
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            PreparedStatement stmt = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setInt(1, (int) review.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

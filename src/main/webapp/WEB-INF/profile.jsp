@@ -33,28 +33,27 @@
 
     <%--Shows Reviews on profile --%>
     <c:forEach var="review" items="${reviews}">
-        <c:if test="${sessionScope.user.id eq ad.userId}">
+        <c:if test="${sessionScope.user.id eq user.id}">
             <div class="col-md-6">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
+                <h2>${review.title}</h2>
+                <p>${review.review}</p>
 
-                <form action="${pageContext.request.contextPath}/ads/edit/${ad.id}" method="get">
+         <%--Edit Review--%>
+                <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">
                     <button>Edit Ad</button>
                 </form>
 
-                    <%--Delete An Ad --%>
-                <form action="/ads/delete" method="POST">
+         <%--Delete Review--%>
+                <form action="/reviews/delete" method="POST">
                     <button>Delete Ad</button>
-                    <input type="hidden" name="singleAd" value="${ad.id}">
+                    <input type="hidden" name="singleReview" value="${review.id}">
                 </form>
 
                     <%--Shows the Single ad with extra info --%>
-                <form action="/ads/single" method="get">
+                <form action="/reviews/single" method="get">
                     <button>Click for more details!</button>
-                    <input type="hidden" name="singleAd" value="${ad.id}">
+                    <input type="hidden" name="singleReview" value="${review.id}">
                 </form>
-
-
             </div>
         </c:if>
     </c:forEach>
