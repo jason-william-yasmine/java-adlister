@@ -24,11 +24,12 @@ public interface Reviews {
     public List<Review> getReviewByTitle(String title);
 
 
-        // Delete Review
+    // Delete Review
     void delete(Review review);
 
     // Edit Review
     void edit(Review reviewObject, String title, String description, String thumb);
+    // edit with new stuff
 }
 
 
