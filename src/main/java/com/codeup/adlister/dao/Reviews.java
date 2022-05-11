@@ -24,5 +24,5 @@ public interface Reviews {
     void delete(Review review);
 
 
-
+    void edit(Review reviewObject, String title, String description);
 }
