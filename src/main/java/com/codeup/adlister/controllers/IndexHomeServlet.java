@@ -1,7 +1,9 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.dao.Reviews;
 import com.codeup.adlister.models.Review;
+import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,9 +19,30 @@ public class IndexHomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        // Data table used for cards
         req.setAttribute("reviews", DaoFactory.getReviewsDao().all());
 
+        // Counting Reviews
+        List<Review> reviews = DaoFactory.getReviewsDao().all();
+        req.setAttribute("rNumber", reviews.size());
+
+        // Counting Users
+        List<User> users = DaoFactory.getUsersDao().all();
+        req.setAttribute("uNumber", users.size());
+
+        // Stand
         req.getRequestDispatcher("index-home.jsp").forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        int id = Integer.parseInt(req.getParameter("id"));
+        Review review = DaoFactory.getReviewsDao().getReviewById(id);
+
+        if(review != null) {
+            req.getSession().setAttribute("review", review);
+            resp.sendRedirect("/reviews/single");
+        }
+    }
 }

@@ -32,6 +32,7 @@
     </div>
 
     <%--Shows Reviews on profile --%>
+
     <c:forEach var="review" items="${reviews}">
         <c:if test="${sessionScope.user.id eq user.id}">
             <div class="col-md-6">
@@ -47,12 +48,35 @@
                 <form action="/reviews/delete" method="POST">
                     <button>Delete Ad</button>
                     <input type="hidden" name="singleReview" value="${review.id}">
+
+    <c:forEach var="review" items="${sessionScope.reviews}">
+        <c:if test="${sessionScope.user.id eq review.uid}">
+            <div class="col-md-6">
+                <h2>${review.title}</h2>
+
+
+                <p>${review.review}</p>
+
+
+                <form action="${pageContext.request.contextPath}/review/edit/${review.id}" method="get">
+                    <button>Edit Review</button>
+                </form>
+
+                    <%--Delete An Ad --%>
+                <form action="/reviews/delete" method="POST">
+                    <button>Delete Ad</button>
+                    <input type="hidden" name="singleAd" value="${review.id}">
+
                 </form>
 
                     <%--Shows the Single ad with extra info --%>
                 <form action="/reviews/single" method="get">
                     <button>Click for more details!</button>
+
                     <input type="hidden" name="singleReview" value="${review.id}">
+
+                    <input type="hidden" name="singleAd" value="${review.id}">
+
                 </form>
             </div>
         </c:if>

@@ -44,64 +44,57 @@
                 <div class="col-md-9">
                     <%--REVIEWS--%>
                     <%--FOR EACH LOOP WILL REPLACE THE FOLLOWING CARD WITH DB DATA--%>
-                        <c:forEach var="review" items="${reviews}">
-                    <div class="card border-0 mb-5"
-                         style="height: 170px">
-                        <div class="row no-gutters">
-                            <div class="col-sm-3">
-                                <img src="${review.thumb}"
-                                     alt="${review.review}"
-                                     class="img-fluid rounded">
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        Tutorial Title: ${review.title}
+                    <c:forEach var="review" items="${reviews}">
+                        <div class="card border-0  overflow-hidden"
+                             style="max-height: 170px">
+                            <div class="row no-gutters">
+                                <div class="col-sm-3">
+                                    <img src="${review.thumb}"
+                                         alt="alt text here"
+                                         class="card-img-top">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            Tutorial Title: ${review.title}
+                                        </div>
+                                        <div class="star-rating">
+                                            Stars: ${review.rating}<br>
+                                        </div>
+                                            <%--                                    <div class="star-rating">--%>
+                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
+                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
+                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
+                                            <%--                                        <i class="fa-regular fa-star"></i>--%>
+                                            <%--                                        <i class="fa-regular fa-star"></i>--%>
+                                            <%--                                    </div>--%>
+                                        <div>
+                                            <p class="mt-2">
+                                                    ${review.review}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div class="star-rating">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <p class="mt-2">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati perspiciatis praesentium quia sequi. At debitis dolore et illo ipsa officiis optio perferendis placeat quam quas rem repellendus, sapiente totam veniam...
-                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                        </c:forEach>
-                    <%--END OF CARD--%>
-                    <%--FOR EACH LOOP WILL REPLACE THE FOLLOWING CARD WITH DB DATA--%>
-                    <div class="card border-0 mb-3"
-                         style="height: 170px">
-                        <div class="row no-gutters">
-                            <div class="col-sm-3">
-                                <img src="img/tut-thumbs/BitDegree.png"
-                                     alt="BitDegree Logo"
-                                     class="img-fluid rounded">
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        Tutorial Title
-                                    </div>
-                                    <div class="star-rating">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                        <i class="fa-regular fa-star"></i>
-                                    </div>
-                                    <p class="mt-2">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati perspiciatis praesentium quia sequi. At debitis dolore et illo ipsa officiis optio perferendis placeat quam quas rem repellendus, sapiente totam veniam...
-                                    </p>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end">
+                                    <form method="post" action="/index-home">
+                                        <button
+                                                class="btn btn-primary open-review mx-3"
+                                                id="btn-review-${review.id}">
+                                            Read More..
+                                        </button>
+                                        <input
+                                                type="hidden"
+                                                name="id"
+                                                value="${review.id}">
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </c:forEach>
                     <%--END OF CARD--%>
                 </div>
                 <%--RIGHT--%>
@@ -111,8 +104,7 @@
                         <div class="card-body">
                             <h3>Reviews</h3>
                             <h4 class="display-4">
-                                <i class="fas fa-pencil-alt"></i>
-                                6                                           <%--Replace with C tag--%>
+                                <i class="fas fa-pencil-alt"></i> ${rNumber}
                             </h4>
                         </div>
                     </div>
@@ -121,9 +113,8 @@
                         <div class="card-body">
                             <h3>Categories</h3>
                             <h4 class="display-4">
-                                <i class="fas fa-folder"></i> 4
+                                <i class="fas fa-folder"></i> ?
                             </h4>
-                                                                            <%--Replace with drop down selection--%>
                             <a href="categories.html" class="btn btn-outline-light btn-sm">Select</a>
                         </div>
                     </div>
@@ -132,7 +123,7 @@
                         <div class="card-body">
                             <h3>Users</h3>
                             <h4 class="display-4">
-                                <i class="fas fa-users"></i> 4
+                                <i class="fas fa-users"></i>  ${uNumber}
                             </h4>
                             <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
                         </div>
@@ -141,19 +132,6 @@
             </div>
         </div>
     </section>
-
-    <%--TEST--%>
-    <c:forEach var="review" items="${reviews}">
-        <div class="col-md-6">
-            <h2>
-                <c:out value="${review.reviewName}" />
-            </h2>
-            <p>
-                <c:out value="${review.tutDescription}" />
-            </p>
-        </div>
-
-    </c:forEach>
 
     <%--FOOT--%>
     <jsp:include page="/WEB-INF/partials/footer.jsp" />

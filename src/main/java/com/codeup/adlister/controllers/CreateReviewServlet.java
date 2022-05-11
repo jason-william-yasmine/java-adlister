@@ -44,7 +44,13 @@ public class CreateReviewServlet extends HttpServlet {
 
 
         if (inputHasErrors) {
-            resp.sendRedirect("/reviews/create");
+            req.getSession().setAttribute("title", title);
+            req.getSession().setAttribute("review", reviewComment);
+            req.getSession().setAttribute("rating", rating);
+            req.getSession().setAttribute("tutorialURL", tutorialURL);
+            req.getSession().setAttribute("thumb", thumb);
+            req.getSession().setAttribute("cat", cat);
+            resp.sendRedirect("/reviews/create?error");
             return;
         }
 
@@ -59,6 +65,12 @@ public class CreateReviewServlet extends HttpServlet {
         Review review = new Review(uid, title, reviewComment, rating, tutorialURL, thumb, cat);
 
         DaoFactory.getReviewsDao().insert(review);
+      
+
+        req.getSession().setAttribute("review", review);
+
+        resp.sendRedirect("/profile");
+        
 
         req.getSession().setAttribute("review", review);
 

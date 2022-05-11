@@ -12,6 +12,7 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <%--HEADER--%>
+
     <header id="main-header" class="py-2 bg-primary text-white">
         <div class="container">
             <div class="row">
@@ -31,7 +32,7 @@
                 <%--title--%>
                     <div class="form-group">
                         <label for="title" class="mb-1">Name of Review</label>
-                        <input id="title" name="title" class="form-control" type="text">
+                        <input id="title" name="title" class="form-control" type="text" value="${sessionScope.title}">
                     </div>
                 <%--thumb--%>
                     <div class="form-group mt-3">
@@ -39,67 +40,67 @@
                         <select id="thumb" class="form-select mt-3" name="thumb">
                             <option selected>  </option>
                             <option
-                                    value="/img/tut-thumbs/BitDegree.png">
+                                    value="http://localhost:8080/img/tut-thumbs/BitDegree.png">
                                 BitDegree
                             </option>
                             <option
-                                    value="/img/tut-thumbs/CodeAvengers.png">
+                                    value="http://localhost:8080/img/tut-thumbs/CodeAvengers.png">
                                 CodeAvengers
                             </option>
                             <option
-                                    value="/img/tut-thumbs/Codecademy.png">
+                                    value="http://localhost:8080/img/tut-thumbs/Codecademy.png">
                                 Code Academy
                             </option>
                             <option
-                                    value="/img/tut-thumbs/CodeConquest.png">
+                                    value="http://localhost:8080/img/tut-thumbs/CodeConquest.png">
                                 CodeConquest
                             </option>
                             <option
-                                    value="/img/tut-thumbs/Coursera.png">
+                                    value="http://localhost:8080/img/tut-thumbs/Coursera.png">
                                 Coursera
                             </option>
                             <option
-                                    value="/img/tut-thumbs/EvatoTuts.png">
+                                    value="http://localhost:8080/img/tut-thumbs/EvatoTuts.png">
                                 EvatoTuts
                             </option>
                             <option
-                                    value="/img/tut-thumbs/FutureLearn.png">
+                                    value="http://localhost:8080/img/tut-thumbs/FutureLearn.png">
                                 Future Learn
                             </option>
                             <option
-                                    value="/img/tut-thumbs/GeeksForGeeks.png">
+                                    value="http://localhost:8080/img/tut-thumbs/GeeksForGeeks.png">
                                 Geeks for Geeks
                             </option>
                             <option
-                                    value="/img/tut-thumbs/Khan.png">
+                                    value="http://localhost:8080/img/tut-thumbs/Khan.png">
                                 Khan
                             </option>
                             <option
-                                    value="/img/tut-thumbs/LinkedIn.png">
+                                    value="http://localhost:8080/img/tut-thumbs/LinkedIn.png">
                                 LinkedIn Learning
                             </option>
                             <option
-                                    value="/img/tut-thumbs/MIT.png">
+                                    value="http://localhost:8080/img/tut-thumbs/MIT.png">
                                 MIT
                             </option>
                             <option
-                                    value="/img/tut-thumbs/Skillcrush.png">
+                                    value="http://localhost:8080/img/tut-thumbs/Skillcrush.png">
                                 Skill Crush
                             </option>
                             <option
-                                    value="/img/tut-thumbs/SoloLearn.png">
+                                    value="http://localhost:8080/img/tut-thumbs/SoloLearn.png">
                                 SoloLearn
                             </option>
                             <option
-                                    value="/img/tut-thumbs/TheOdenProject.png">
+                                    value="http://localhost:8080/img/tut-thumbs/TheOdenProject.png">
                                 The Oden Project
                             </option>
                             <option
-                                    value="/img/tut-thumbs/Udemy.png">
+                                    value="http://localhost:8080/img/tut-thumbs/Udemy.png">
                                 Udemy
                             </option>
                             <option
-                                    value="/img/tut-thumbs/YouTube.png">
+                                    value="http://localhost:8080/img/tut-thumbs/YouTube.png">
                                 YouTube
                             </option>
                         </select>
@@ -107,7 +108,7 @@
                 <%--tutorialURL--%>
                     <div class="form-group mt-3">
                         <label for="tutorialURL" class="mb-1">Enter URL for Tutorial</label>
-                        <input type="text" id="tutorialURL" class="form-control" name="tutorialURL">
+                        <input type="text" id="tutorialURL" class="form-control" name="tutorialURL" value="${sessionScope.tutorialURL}">
                     </div>
                 <%--rating--%>
                     <div class="form-group mt-3">
@@ -125,12 +126,12 @@
                 <%--review--%>
                     <div class="form-group mt-3">
                         <label for="review" class="mb-1">Review Comments</label>
-                        <textarea id="review" class="form-control" name="review"></textarea>
+                        <textarea id="review" class="form-control" name="review">${sessionScope.review}</textarea>
                     </div>
                 <%--cat--%>
                     <div class="form-group mt-3">
                         <label for="cat" class="mb-1">Category of Tutorial</label>
-                        <select class="cat" name="cat" id="cat">
+                        <select class="form-select mt-3" name="cat" id="cat">
                             <option selected> </option>
                             <option value="html">HTML</option>
                             <option value="css">CSS</option>
@@ -149,6 +150,9 @@
     <%--SCRIPTS--%>
     <jsp:include page="/WEB-INF/partials/scripts.jsp" />
 
+    <script>
+            <c:if test="${param.error != null}">alert("One or more input fields are blank")</c:if>
+    </script>
 
 </body>
 </html>
