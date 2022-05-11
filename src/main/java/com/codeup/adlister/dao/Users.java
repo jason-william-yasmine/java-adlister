@@ -8,5 +8,8 @@ import java.util.List;
 public interface Users {
     public List<User> all();
     User findByUsername(String username);
+
+    User findByEmail(String email);
+
     Long insert(User user);
 }
