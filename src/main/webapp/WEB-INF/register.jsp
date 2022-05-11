@@ -28,8 +28,6 @@
 
 
 <%--MAIN--%>
-
-<h1 class="d-flex justify-content-center"><c:if test="${param.error != null}">Something went wrong, try again!!!</c:if></h1>
 <div class="container w-50">
     <form action="/register" method="post" class="mt-4">
         <%--username--%>
@@ -40,7 +38,7 @@
         <%--email--%>
         <div class="form-group">
             <label for="email" class="mb-1">Email</label>
-            <input id="email" name="email" class="form-control" type="email">
+            <input id="email" name="email" class="form-control" type="email" value="${sessionScope.registerEmail}">
         </div>
         <%--password--%>
         <div class="form-group">
@@ -77,6 +75,10 @@
 
 <%--SCRIPTS--%>
 <jsp:include page="/WEB-INF/partials/scripts.jsp" />
+
+<script>
+    <c:if test="${param.error != null}">alert("Something went wrong, try again!!!")</c:if>
+</script>
 
 </body>
 </html>

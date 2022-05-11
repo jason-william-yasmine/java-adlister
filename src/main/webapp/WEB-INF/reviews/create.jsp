@@ -27,13 +27,12 @@
     </header>
 
     <%--MAIN--%>
-    <h1 class="d-flex justify-content-center"><c:if test="${param.error != null}">One or more input fields are blank</c:if></h1>
     <div class="container w-50">
             <form action="/reviews/create" method="post" class="mt-4">
                 <%--title--%>
                     <div class="form-group">
                         <label for="title" class="mb-1">Name of Review</label>
-                        <input id="title" name="title" class="form-control" type="text">
+                        <input id="title" name="title" class="form-control" type="text" value="${sessionScope.title}">
                     </div>
                 <%--thumb--%>
                     <div class="form-group mt-3">
@@ -109,7 +108,7 @@
                 <%--tutorialURL--%>
                     <div class="form-group mt-3">
                         <label for="tutorialURL" class="mb-1">Enter URL for Tutorial</label>
-                        <input type="text" id="tutorialURL" class="form-control" name="tutorialURL">
+                        <input type="text" id="tutorialURL" class="form-control" name="tutorialURL" value="${sessionScope.tutorialURL}">
                     </div>
                 <%--rating--%>
                     <div class="form-group mt-3">
@@ -127,7 +126,7 @@
                 <%--review--%>
                     <div class="form-group mt-3">
                         <label for="review" class="mb-1">Review Comments</label>
-                        <textarea id="review" class="form-control" name="review"></textarea>
+                        <textarea id="review" class="form-control" name="review">${sessionScope.review}</textarea>
                     </div>
                 <%--cat--%>
                     <div class="form-group mt-3">
@@ -151,6 +150,9 @@
     <%--SCRIPTS--%>
     <jsp:include page="/WEB-INF/partials/scripts.jsp" />
 
+    <script>
+            <c:if test="${param.error != null}">alert("One or more input fields are blank")</c:if>
+    </script>
 
 </body>
 </html>
