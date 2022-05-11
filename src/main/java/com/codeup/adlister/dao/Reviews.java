@@ -29,6 +29,7 @@ public interface Reviews {
 
     // Edit Review
     void edit(Review reviewObject, String title, String description, String thumb);
+    // edit with new stuff
 }
 
 
