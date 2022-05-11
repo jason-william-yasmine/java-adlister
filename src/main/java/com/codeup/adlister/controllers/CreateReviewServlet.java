@@ -2,6 +2,8 @@ package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Review;
+import com.codeup.adlister.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,8 +28,11 @@ public class CreateReviewServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        User user = (User) req.getSession().getAttribute("user");
+        System.out.println(user.getId());
+
         // Get data from jsp form
-        int uid = 1;                            // <-- REPLACE WITH USER SESSION
+        int uid = (int) user.getId();                            // <-- REPLACE WITH USER SESSION
         System.out.println(uid);
 
         String title = req.getParameter("title");

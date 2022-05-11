@@ -20,7 +20,11 @@ public interface Reviews {
     // Find Review by id
     Review getReviewById(long id);
 
-    // Delete Review
+    // Find Review by name
+    public Review getReviewByName(String title);
+
+
+        // Delete Review
     void delete(Review review);
 
     // Edit Review
