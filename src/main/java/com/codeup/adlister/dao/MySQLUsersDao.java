@@ -1,6 +1,5 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Review;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
@@ -53,6 +52,20 @@ public class MySQLUsersDao implements Users {
 
         } catch (SQLException e) {
             throw new RuntimeException("Error finding a user by username (findByUsername())", e);
+        }
+    }
+
+    @Override
+    public User findByEmail(String email) {
+        String q = "SELECT * FROM users WHERE email = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(q);
+            ps.setString(1, email);
+
+            return extractUser(ps.executeQuery());
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding a email", e);
         }
     }
 
