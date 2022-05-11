@@ -44,6 +44,12 @@ public class CreateReviewServlet extends HttpServlet {
 
 
         if (inputHasErrors) {
+            req.getSession().setAttribute("title", title);
+            req.getSession().setAttribute("review", reviewComment);
+            req.getSession().setAttribute("rating", rating);
+            req.getSession().setAttribute("tutorialURL", tutorialURL);
+            req.getSession().setAttribute("thumb", thumb);
+            req.getSession().setAttribute("cat", cat);
             resp.sendRedirect("/reviews/create?error");
             return;
         }
