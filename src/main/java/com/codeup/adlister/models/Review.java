@@ -14,6 +14,8 @@ public class Review {
 
 
     // CON
+    // 1
+
     public Review(long id, long uid, String title, String review, int rating, String tutorialURL, String thumb, String cat) {
         this.id = id;
         this.uid = uid;
@@ -24,7 +26,14 @@ public class Review {
         this.thumb = thumb;
         this.cat = cat;
     }
-    public Review(int uid, String title, String reviewComment, int rating, String tutorialURL, String cat) {
+    public Review(int uid, String title, String review, int rating, String tutorialURL, String thumb, String cat) {
+        this.uid = uid;
+        this.title = title;
+        this.review = review;
+        this.rating = rating;
+        this.tutorialURL = tutorialURL;
+        this.thumb = thumb;
+        this.cat = cat;
     }
 
     // GETS

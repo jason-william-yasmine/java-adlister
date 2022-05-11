@@ -1,11 +1,18 @@
 
 
 // LOGIN
-// $('#btn-register').on("click", (e) => {
-//     e.preventDefault();
-//     console.log("click")
-//     window.location.replace("/index");
-// })
+$('#btn-register').on("click", (e) => {
+    e.preventDefault();
+    console.log("click")
+    window.location.replace("/register");
+})
+
+
+// STAR RATING
+
+
+
+
 
 
 // FOOT

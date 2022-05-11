@@ -23,7 +23,7 @@ public class RegisterServlet extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        String passwordConfirmation = request.getParameter("confirm_password");
+        String passwordConfirmation = request.getParameter("confirm-password");
         String avatar = request.getParameter("avatar");
 
 
@@ -39,8 +39,11 @@ public class RegisterServlet extends HttpServlet {
         System.out.println(user1);
 
         if (inputHasErrors) {
+
+
             request.getSession().setAttribute("registerUsername", username);
             response.sendRedirect("/register?error");
+
             return;
         }
 
