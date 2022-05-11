@@ -34,9 +34,13 @@
 
     <%--Shows Reviews on profile --%>
     <c:forEach var="review" items="${reviews}">
-        <c:if test="${sessionScope.user.id eq user.id}">
-            <div class="col-md-6">
-                <img src="${review.thumb}">
+        <c:if test="${sessionScope.user.id eq review.uid}">
+            <div class="row no-gutters">
+                <div class="col-sm-3">
+                    <img src="${review.thumb}"
+                         alt="alt text here"
+                         class="card-img-top">
+                </div>
                 <h2>${review.title}</h2>
                 <p>${review.review}</p>
 
