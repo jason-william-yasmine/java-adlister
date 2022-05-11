@@ -28,6 +28,8 @@ public class CreateReviewServlet extends HttpServlet {
 
         // Get data from jsp form
         int uid = 1;                            // <-- REPLACE WITH USER SESSION
+        System.out.println(uid);
+
         String title = req.getParameter("title");
         String reviewComment = req.getParameter("review");
         int rating = Integer.parseInt(req.getParameter("rating"));
@@ -35,23 +37,31 @@ public class CreateReviewServlet extends HttpServlet {
         String thumb = req.getParameter("thumb");
         String cat = req.getParameter("cat");
 
-
         // validate input
         boolean inputHasErrors = title.isEmpty() ||
                 tutorialURL.isEmpty() || rating < 0 || reviewComment.isEmpty() ||
                 cat.isEmpty();
+
 
         if (inputHasErrors) {
             resp.sendRedirect("/reviews/create");
             return;
         }
 
+        req.setAttribute("title", title);
+        req.setAttribute("reviewComment", reviewComment);
+        req.setAttribute("rating", rating);
+        req.setAttribute("tutorialURL", tutorialURL);
+        req.setAttribute("thumb", thumb);
+        req.setAttribute("cat", cat);
+
         // Create and Save new Review
-        Review review = new Review(uid, title, reviewComment, rating, tutorialURL, cat);
+        Review review = new Review(uid, title, reviewComment, rating, tutorialURL, thumb, cat);
+
         DaoFactory.getReviewsDao().insert(review);
+
         req.getSession().setAttribute("review", review);
+
         resp.sendRedirect("/profile");
-
-
     }
 }

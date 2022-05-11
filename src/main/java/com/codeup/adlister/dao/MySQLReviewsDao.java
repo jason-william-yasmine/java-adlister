@@ -44,20 +44,21 @@ public class MySQLReviewsDao implements Reviews{
             String insertQuery = "INSERT INTO reviews(" +
                     "uid, title, review, rating, tutorialURL, thumb, cat) " +
                     " VALUES (?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, r.getUid());
-            stmt.setString(2, r.getTitle());
-            stmt.setString(2, r.getReview());
-            stmt.setString(2, r.getTutorialURL());
-            stmt.setString(2, r.getThumb());
-            stmt.setString(2, r.getCat());
+            PreparedStatement ps = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            ps.setLong(1, r.getUid());
+            ps.setString(2, r.getTitle());
+            ps.setString(3, r.getReview());
+            ps.setInt(4, r.getRating());
+            ps.setString(5, r.getTutorialURL());
+            ps.setString(6, r.getThumb());
+            ps.setString(7, r.getCat());
+            ps.executeUpdate();
 
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
+            ResultSet rs = ps.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating a new review.", e);
+            throw new RuntimeException("Error creating a new review (insert(Review r)", e);
         }
     }
 
