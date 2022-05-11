@@ -17,8 +17,9 @@
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarCollapse">
 
-            <form id="nav-search-form" class="form-inline my-2 mx-3 my-lg-0">
-                <input type="search" class="form-control" placeholder="Search Reviews">
+
+            <form method="get" name="/index-home" class="form-inline my-2 mx-3 my-lg-0">
+                <input class="form-control" name="title" placeholder="Search Reviews">
             </form>
 
             <ul class="navbar-nav">

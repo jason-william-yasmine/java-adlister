@@ -21,7 +21,7 @@ public interface Reviews {
     Review getReviewById(long id);
 
     // Find Review by name
-    public Review getReviewByName(String title);
+    public List<Review> getReviewByTitle(String title);
 
 
         // Delete Review
