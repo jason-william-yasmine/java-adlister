@@ -27,7 +27,7 @@
                     <li class="nav-item">
                         <a href="/login" class="nav-link">
                             <i class="fas fa-user-times"></i>
-                            Login
+                            Login/Register
                         </a>
                     </li>
 
