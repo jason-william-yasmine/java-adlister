@@ -12,15 +12,14 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <%--HEADER--%>
-
     <header id="main-header" class="py-2 bg-primary text-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h>
+                    <h5>
                         <i class="fa-solid fa-folder-plus"></i>
                         Add Review
-                    </h>
+                    </h5>
                 </div>
             </div>
         </div>

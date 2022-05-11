@@ -15,26 +15,30 @@ import static java.lang.Long.parseLong;
 
 @WebServlet(name = "EditReviewServlet", urlPatterns = "/reviews/edit/*")
 public class EditReviewServlet extends HttpServlet{ protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     String reviewId = request.getPathInfo().substring(1);
 
     Review grabId = DaoFactory.getReviewsDao().getReviewById(Long.parseLong(reviewId));
 
-    request.getSession().setAttribute("review",grabId);
+    request.getSession().setAttribute("review", grabId);
 
     System.out.println("grabId.getDescription() = " + grabId.getReview());
     System.out.println("grabId.getDescription() = " + grabId.getTitle());
-
     System.out.println("grabId.getThumb()= " + grabId.getThumb());
-
-
+    System.out.println("grabId.getThumb()= " + grabId.getTutorialURL());
+    System.out.println("grabId.getThumb()= " + grabId.getRating());
+    System.out.println("grabId.getThumb()= " + grabId.getReview());
+    System.out.println("grabId.getThumb()= " + grabId.getCat());
 
     request.setAttribute("existingTitle", grabId.getTitle());
     request.setAttribute("existingDescription", grabId.getReview());
-
     request.setAttribute("existingThumb", grabId.getThumb());
+    request.setAttribute("existingTutorialURL", grabId.getTutorialURL());
+    request.setAttribute("existingRating", grabId.getRating());
+    request.setAttribute("existingReview", grabId.getReview());
+    request.setAttribute("existingCat", grabId.getCat());
 
     request.getRequestDispatcher("/WEB-INF/reviews/edit.jsp").forward(request, response);
-
 
 }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
