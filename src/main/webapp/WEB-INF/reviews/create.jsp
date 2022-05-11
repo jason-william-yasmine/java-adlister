@@ -12,6 +12,7 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
     <%--HEADER--%>
+
     <header id="main-header" class="py-2 bg-primary text-white">
         <div class="container">
             <div class="row">
@@ -26,6 +27,7 @@
     </header>
 
     <%--MAIN--%>
+    <h1 class="d-flex justify-content-center"><c:if test="${param.error != null}">One or more input fields are blank</c:if></h1>
     <div class="container w-50">
             <form action="/reviews/create" method="post" class="mt-4">
                 <%--title--%>
