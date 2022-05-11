@@ -45,49 +45,55 @@
                     <%--REVIEWS--%>
                     <%--FOR EACH LOOP WILL REPLACE THE FOLLOWING CARD WITH DB DATA--%>
                     <c:forEach var="review" items="${reviews}">
-                    <div class="card border-0 mb-5"
-                         style="height: 170px">
-                        <div class="row no-gutters">
-                            <div class="col-sm-3">
-                                <img src="${review.thumb}"
-                                     alt="alt text here"
-                                     class="card-img-top">
-                            </div>
-                            <div class="col-sm-9">
-                                <div class="card-body">
-                                    <div class="card-title">
-                                        Tutorial Title: ${review.title}
-                                    </div>
-                                    <div class="star-rating">
-                                        Stars: ${review.rating}<br>
-                                    </div>
-<%--                                    <div class="star-rating">--%>
-<%--                                        <i class="fa-solid fa-star"></i>--%>
-<%--                                        <i class="fa-solid fa-star"></i>--%>
-<%--                                        <i class="fa-solid fa-star"></i>--%>
-<%--                                        <i class="fa-regular fa-star"></i>--%>
-<%--                                        <i class="fa-regular fa-star"></i>--%>
-<%--                                    </div>--%>
-                                    <p class="mt-2">
-                                        ${review.review}
-                                    </p>
-                                    <div class="d-flex justify-content-end">
-                                        <form method="post" action="/index-home">
-                                            <button
-                                                    class="btn btn-primary open-review mx-3"
-                                                    id="btn-review-${review.id}">
-                                                Read More..
-                                            </button>
-                                            <input
-                                                    type="hidden"
-                                                    name="id"
-                                                    value="${review.id}">
-                                        </form>
+                        <div class="card border-0  overflow-hidden"
+                             style="max-height: 170px">
+                            <div class="row no-gutters">
+                                <div class="col-sm-3">
+                                    <img src="${review.thumb}"
+                                         alt="alt text here"
+                                         class="card-img-top">
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            Tutorial Title: ${review.title}
+                                        </div>
+                                        <div class="star-rating">
+                                            Stars: ${review.rating}<br>
+                                        </div>
+                                            <%--                                    <div class="star-rating">--%>
+                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
+                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
+                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
+                                            <%--                                        <i class="fa-regular fa-star"></i>--%>
+                                            <%--                                        <i class="fa-regular fa-star"></i>--%>
+                                            <%--                                    </div>--%>
+                                        <div>
+                                            <p class="mt-2">
+                                                    ${review.review}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-end">
+                                    <form method="post" action="/index-home">
+                                        <button
+                                                class="btn btn-primary open-review mx-3"
+                                                id="btn-review-${review.id}">
+                                            Read More..
+                                        </button>
+                                        <input
+                                                type="hidden"
+                                                name="id"
+                                                value="${review.id}">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </c:forEach>
                     <%--END OF CARD--%>
                 </div>
