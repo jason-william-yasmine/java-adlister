@@ -10,14 +10,14 @@
 <html>
 <head>
   <jsp:include page="/WEB-INF/partials/head.jsp">
-    <jsp:param name="title" value="Edit your Ad"/>
+    <jsp:param name="title" value="Edit your Review"/>
   </jsp:include>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
   <form action="/reviews/edit" method="post">
-    <input type="hidden" name="adToUpdate" value="${adObject}">
+    <input type="hidden" name="reviewToUpdate" value="${reviewObject}">
     <div class="col-md-6 justify-content-center form-group">
       <h1>Edit your review</h1>
 
@@ -27,13 +27,16 @@
     <div class="form-group">
       <label for="description"> Description: </label>
       <textarea id="description" type="text" name="description">${review.review}</textarea>
-      <h3>Categories would go here: </h3>
       <button>Save Changes</button>
     </div>
 
   </form>
 
 </div>
+<%--FOOT--%>
+<jsp:include page="/WEB-INF/partials/footer.jsp" />
 
+<%--SCRIPTS--%>
+<jsp:include page="/WEB-INF/partials/scripts.jsp" />
 </body>
 </html>
