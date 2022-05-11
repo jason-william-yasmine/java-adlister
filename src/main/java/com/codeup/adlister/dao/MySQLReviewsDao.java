@@ -78,6 +78,19 @@ public class MySQLReviewsDao implements Reviews{
         }
     }
 
+    @Override
+    public List<Review> getReviewByCat(String category) {
+        String q = "SELECT * FROM reviews WHERE cat = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(q);
+            ps.setString(1, category);
+            ResultSet rs = ps.executeQuery();
+            return createReviewsFromRS(rs);
+        } catch(SQLException e) {
+            throw new RuntimeException("Error finding Review by ID (getReviewById()) ", e);
+        }
+    }
+
     public static void main(String[] args) {
         Reviews reviewsDao = new MySQLReviewsDao(new Config());
         List<Review> reviews = reviewsDao.getReviewByTitle("ggg");
@@ -96,6 +109,8 @@ public class MySQLReviewsDao implements Reviews{
             throw new RuntimeException("Error finding Review by ID (getReviewById()) ", e);
         }
     }
+
+
 
     @Override
     public void edit(Review review, String title, String description, String thumb){

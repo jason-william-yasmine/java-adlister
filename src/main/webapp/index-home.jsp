@@ -115,7 +115,21 @@
                             <h4 class="display-4">
                                 <i class="fas fa-folder"></i> ?
                             </h4>
-                            <a href="categories.html" class="btn btn-outline-light btn-sm">Select</a>
+<%--                            <a href="categories.html" class="btn btn-outline-light btn-sm">Select</a>--%>
+                            <form action="/index-home" method="GET">
+                                <div class="form-group mt-3">
+                                    <label for="cat" class="mb-1">Category of Tutorial</label>
+                                    <select class="form-select mt-3" name="cat" id="cat">
+                                        <option selected> </option>
+                                        <option value="html">HTML</option>
+                                        <option value="css">CSS</option>
+                                        <option value="javascript">JavaScript</option>
+                                        <option value="bootstrap">BootStrap</option>
+                                    </select>
+                                </div>
+
+                                <input type="submit" class="btn btn-block btn-block btn-success mt-3 w-100" value="Search">
+                            </form>
                         </div>
                     </div>
                     <!--CARD 03-->
