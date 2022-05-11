@@ -28,36 +28,28 @@
 
     <%--MAIN--%>
     <div class="container">
-        <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <h1><img src="${sessionScope.user.avatar}" alt="information">Welcome, ${sessionScope.user.username}!</h1>
+
     </div>
 
     <%--Shows Reviews on profile --%>
-    <c:forEach var="review" items="${sessionScope.reviews}">
-        <c:if test="${sessionScope.user.id eq review.uid}">
+    <c:forEach var="review" items="${reviews}">
+        <c:if test="${sessionScope.user.id eq user.id}">
             <div class="col-md-6">
+                <img src="${review.thumb}">
                 <h2>${review.title}</h2>
-
-
                 <p>${review.review}</p>
 
-
-                <form action="${pageContext.request.contextPath}/review/edit/${review.id}" method="get">
+                    <%--Edit Review--%>
+                <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">
                     <button>Edit Review</button>
                 </form>
 
-                    <%--Delete An Ad --%>
+                    <%--Delete Review--%>
                 <form action="/reviews/delete" method="POST">
-                    <button>Delete Ad</button>
-                    <input type="hidden" name="singleAd" value="${review.id}">
+                    <button>Delete Review</button>
+                    <input type="hidden" name="singleReview" value="${review.id}">
                 </form>
-
-                    <%--Shows the Single ad with extra info --%>
-                <form action="/reviews/single" method="get">
-                    <button>Click for more details!</button>
-                    <input type="hidden" name="singleAd" value="${review.id}">
-                </form>
-
-
             </div>
         </c:if>
     </c:forEach>
