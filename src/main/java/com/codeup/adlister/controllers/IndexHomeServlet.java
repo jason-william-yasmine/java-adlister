@@ -19,8 +19,16 @@ public class IndexHomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        // Data table used for cards
-        req.setAttribute("reviews", DaoFactory.getReviewsDao().all());
+        // Used for Search by title
+        String title = req.getParameter("title");
+
+        if (title != null){
+            req.getSession().setAttribute("reviews", DaoFactory.getReviewsDao().getReviewByTitle(title));
+            req.getSession().removeAttribute("title");
+        } else {
+            req.setAttribute("reviews", DaoFactory.getReviewsDao().all());
+        }
+
 
         // Counting Reviews
         List<Review> reviews = DaoFactory.getReviewsDao().all();
@@ -37,6 +45,12 @@ public class IndexHomeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+        //  Used for Search
+        String title = req.getParameter("title");
+        System.out.println(title);
+
+        //  Used for "Read More" Buttons
         int id = Integer.parseInt(req.getParameter("id"));
         Review review = DaoFactory.getReviewsDao().getReviewById(id);
 

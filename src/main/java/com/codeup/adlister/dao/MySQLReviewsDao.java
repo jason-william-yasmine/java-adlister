@@ -78,17 +78,20 @@ public class MySQLReviewsDao implements Reviews{
         }
     }
 
+    public static void main(String[] args) {
+        Reviews reviewsDao = new MySQLReviewsDao(new Config());
+        List<Review> reviews = reviewsDao.getReviewByTitle("ggg");
+
+    }
+
     @Override
-    public Review getReviewByName(String title) {
-        String q = "SELECT * FROM reviews WHERE id = ?";
+    public List<Review> getReviewByTitle(String title) {
+        String q = "SELECT * FROM reviews WHERE title LIKE ?";
         try {
             PreparedStatement ps = connection.prepareStatement(q);
-            ps.setString(1, title);
+            ps.setString(1, "%" + title + "%");
             ResultSet rs = ps.executeQuery();
-            if (! rs.next()) {
-                return null;
-            }
-            return extractReview(rs);
+            return createReviewsFromRS(rs);
         } catch(SQLException e) {
             throw new RuntimeException("Error finding Review by ID (getReviewById()) ", e);
         }
