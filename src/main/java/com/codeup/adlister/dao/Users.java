@@ -12,4 +12,6 @@ public interface Users {
     User findByEmail(String email);
 
     Long insert(User user);
+
+    void delete(User user);
 }

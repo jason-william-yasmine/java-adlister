@@ -88,6 +88,20 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    //Delete User
+    @Override
+    public void delete(User user) {
+        try {
+            String deleteQuery = "DELETE FROM users WHERE id = ?";
+            PreparedStatement ps = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
+            ps.setLong(1, user.getId());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     // HELPER METHS
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {
