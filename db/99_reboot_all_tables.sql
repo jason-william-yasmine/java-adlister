@@ -38,7 +38,7 @@ VALUES (1,
         'Comments on tutorial!!',
         3,
         'https://www.youtube.com/watch?v=Y6vXxjp6a3w',
-        'img/tut-thumbs/YouTube.png',
+        'http://localhost:8080/img/tut-thumbs/YouTube.png',
         'html'
        ),
        (2,
@@ -46,7 +46,7 @@ VALUES (1,
         'Comments on tutorial!',
         4,
         'https://www.youtube.com/watch?v=Y6vXxjp6a3w',
-        'img/tut-thumbs/YouTube.png',
+        'http://localhost:8080/img/tut-thumbs/YouTube.png',
         'css'
        ),
        (3,
@@ -54,7 +54,7 @@ VALUES (1,
         'Comments on tutorial!',
         1,
         'https://www.youtube.com/watch?v=Y6vXxjp6a3w',
-        'img/tut-thumbs/YouTube.png',
+        'http://localhost:8080/img/tut-thumbs/YouTube.png',
         'java'
        )
 ;

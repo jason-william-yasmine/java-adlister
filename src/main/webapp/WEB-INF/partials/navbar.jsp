@@ -12,7 +12,7 @@
 <!--NAV-->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-1">
     <div class="container">
-        <a href="/index" class="navbar-brand">TechTutLister</a>
+        <a href="/index-home" class="navbar-brand">TechTutLister</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"><span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarCollapse">
