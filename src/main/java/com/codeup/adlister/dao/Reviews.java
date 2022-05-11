@@ -20,6 +20,8 @@ public interface Reviews {
     // Find Review by id
     Review getReviewById(long id);
 
+    List<Review> getReviewByCat(String category);
+
     // Find Review by name
     public List<Review> getReviewByTitle(String title);
 

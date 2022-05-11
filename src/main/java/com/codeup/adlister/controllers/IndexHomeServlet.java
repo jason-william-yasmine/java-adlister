@@ -21,14 +21,18 @@ public class IndexHomeServlet extends HttpServlet {
 
         // Used for Search by title
         String title = req.getParameter("title");
+        String cat = req.getParameter("cat");
+        System.out.println(cat);
 
         if (title != null){
             req.getSession().setAttribute("reviews", DaoFactory.getReviewsDao().getReviewByTitle(title));
             req.getSession().removeAttribute("title");
+        } else if(cat != null) {
+            req.getSession().setAttribute("reviews", DaoFactory.getReviewsDao().getReviewByCat(cat));
+            req.getSession().removeAttribute("title");
         } else {
-            req.setAttribute("reviews", DaoFactory.getReviewsDao().all());
+            req.getSession().setAttribute("reviews", DaoFactory.getReviewsDao().all());
         }
-
 
         // Counting Reviews
         List<Review> reviews = DaoFactory.getReviewsDao().all();
