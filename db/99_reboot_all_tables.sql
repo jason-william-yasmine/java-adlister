@@ -23,7 +23,7 @@ CREATE TABLE reviews (
                          id                int(10) NOT NULL AUTO_INCREMENT,
                          uid               int(10) NOT NULL,
                          title             varchar(255) NOT NULL,
-                         review            varchar(555) NOT NULL,
+                         review            MEDIUMTEXT NOT NULL,
                          rating            int(10) NOT NULL,
                          tutorialURL       varchar(255) NOT NULL,
                          thumb             varchar(255) NOT NULL,

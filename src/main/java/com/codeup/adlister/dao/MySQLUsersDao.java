@@ -1,9 +1,12 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Review;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MySQLUsersDao implements Users {
 
@@ -27,11 +30,23 @@ public class MySQLUsersDao implements Users {
 
     // OVR
     @Override
+    public List<User> all() {
+        PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement("SELECT * FROM users");
+            ResultSet rs = ps.executeQuery();
+            return createUsersFromRS(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all users (MySQUsersDAO all()", e);
+        }
+    }
+
+
+    @Override
     public User findByUsername(String username) {
         String q = "SELECT * FROM users WHERE username = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(q);
-            System.out.println(ps);
             ps.setString(1, username);
 
             return extractUser(ps.executeQuery());
@@ -66,11 +81,20 @@ public class MySQLUsersDao implements Users {
             return null;
         }
         return new User(
+            rs.getInt("id"),
             rs.getString("username"),
             rs.getString("email"),
             rs.getString("password"),
             rs.getString("avatar")
         );
+    }
+
+    private List<User> createUsersFromRS(ResultSet rs) throws SQLException {
+        List<User> users = new ArrayList<>();
+        while (rs.next()) {
+            users.add(extractUser(rs));
+        }
+        return users;
     }
 
 }

@@ -27,8 +27,7 @@
       <div class="row">
         <div class="col-md-6">
           <h>
-            <i class="fa-solid fa-file-exclamation"></i>
-            Review
+            <i class="fa-solid fa-folder"></i> Review
           </h>
         </div>
       </div>
@@ -36,7 +35,47 @@
   </header>
 
   <%--MAIN--%>
+  <section id="review" class="mt-4">
+    <div class="container">
+      <div class="row">
+        <%--LEFT--%>
+        < class="col-md-9">
+          <%--REVIEW--%>
+          <div class="card">
+          <%--thumb--%>
+            <div class="row">
+              <div class="col-sm-3">
+                  <img src="${sessionScope.review.thumb}"
+                       alt="${sessionScope.review.review}"
+                       class="card-img-top">
+                <div class="col-sm-9">
+                  <%--title--%>
+                  <div class="h1">
+                    Tutorial Title: ${sessionScope.review.title}
+                  </div>
+                </div>
+                <%--rating--%>
+                <div class="star-rating">
+                  Stars: ${sessionScope.review.rating}<br>
+                </div>
+                </div>
+              </div>
+            </div>
+          <div class="card-body">
+            <%--review--%>
+            <p>${sessionScope.review.review}</p>
+            <%--Cat--%>
+            <small>${sessionScope.review.cat}</small>
+          </div>
+        </div>
+        <%--RIGHT--%>
+        <div class="col-md-3">
 
+        </div>
+
+      </div>
+    </div>
+  </section>
 
 
   <%--FOOT--%>

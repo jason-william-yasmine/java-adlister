@@ -50,7 +50,7 @@
                         <div class="row no-gutters">
                             <div class="col-sm-3">
                                 <img src="${review.thumb}"
-                                     alt="${review.review}"
+                                     alt="alt text here"
                                      class="card-img-top">
                             </div>
                             <div class="col-sm-9">
@@ -59,7 +59,7 @@
                                         Tutorial Title: ${review.title}
                                     </div>
                                     <div class="star-rating">
-                                        Stars: ${review.rating}
+                                        Stars: ${review.rating}<br>
                                     </div>
 <%--                                    <div class="star-rating">--%>
 <%--                                        <i class="fa-solid fa-star"></i>--%>
@@ -72,7 +72,17 @@
                                         ${review.review}
                                     </p>
                                     <div class="d-flex justify-content-end">
-                                        <button class="btn btn-primary open-review mx-3">Read More...</button>
+                                        <form method="post" action="/index-home">
+                                            <button
+                                                    class="btn btn-primary open-review mx-3"
+                                                    id="btn-review-${review.id}">
+                                                Read More..
+                                            </button>
+                                            <input
+                                                    type="hidden"
+                                                    name="id"
+                                                    value="${review.id}">
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -88,8 +98,7 @@
                         <div class="card-body">
                             <h3>Reviews</h3>
                             <h4 class="display-4">
-                                <i class="fas fa-pencil-alt"></i>
-                                6                                           <%--Replace with C tag--%>
+                                <i class="fas fa-pencil-alt"></i> ${rNumber}
                             </h4>
                         </div>
                     </div>
@@ -98,9 +107,8 @@
                         <div class="card-body">
                             <h3>Categories</h3>
                             <h4 class="display-4">
-                                <i class="fas fa-folder"></i> 4
+                                <i class="fas fa-folder"></i> ?
                             </h4>
-                                                                            <%--Replace with drop down selection--%>
                             <a href="categories.html" class="btn btn-outline-light btn-sm">Select</a>
                         </div>
                     </div>
@@ -109,7 +117,7 @@
                         <div class="card-body">
                             <h3>Users</h3>
                             <h4 class="display-4">
-                                <i class="fas fa-users"></i> 4
+                                <i class="fas fa-users"></i>  ${uNumber}
                             </h4>
                             <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
                         </div>
