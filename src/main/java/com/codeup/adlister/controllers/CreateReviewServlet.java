@@ -44,7 +44,7 @@ public class CreateReviewServlet extends HttpServlet {
 
 
         if (inputHasErrors) {
-            resp.sendRedirect("/reviews/create");
+            resp.sendRedirect("/reviews/create?error");
             return;
         }
 
