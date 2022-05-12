@@ -46,7 +46,7 @@
                     <%--FOR EACH LOOP WILL REPLACE THE FOLLOWING CARD WITH DB DATA--%>
                     <c:forEach var="review" items="${reviews}">
                         <div class="card border-0  overflow-hidden"
-                             style="max-height: 170px">
+                             style="max-height: 190px">
                             <div class="row no-gutters">
                                 <div class="col-sm-3">
                                     <img src="${review.thumb}"
@@ -59,16 +59,16 @@
                                             Tutorial Title: ${review.title}
                                         </div>
 
-<%--                                        <div class="star-rating">--%>
-<%--                                            Stars: ${review.rating}<br>--%>
-<%--                                        </div>--%>
+                                        <div class="star-rating">
+                                            Stars: ${review.rating}<br>
+                                        </div>
                                         <div>
                                             <p class="mt-2">
                                                 <div class="star-out"></div>
                                             </p>
                                         </div>
                                         <div>
-                                            <p class="mt-2">
+                                            <p class="mt-1">
                                                     ${review.review}
                                             </p>
                                         </div>
@@ -154,65 +154,6 @@
 
     <%--SCRIPTS--%>
     <jsp:include page="/WEB-INF/partials/scripts.jsp" />
-
-    <script>
-        const star${sessionScope.review.review}
-        let starOut = '';
-        switch(star${review.review}){
-            case 0:
-                starOut = '' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>';
-                break;
-            case 1:
-                starOut = '' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>';
-                break;
-            case 2:
-                starOut = '' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>';
-                break;
-            case 3:
-                starOut = '' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>';
-                break;
-            case 4:
-                starOut = '' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-solid fa-star"></i>';
-                break;
-            case 5:
-                starOut = '' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>' +
-                    '<i class="fa-regular fa-star"></i>';
-                break;
-        }
-
-        $('.star-out').html(starOut);
-        console.log(starOut)
-
-    </script>
 
 
 </body>

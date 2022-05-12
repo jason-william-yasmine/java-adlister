@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <a href="/profile" class="btn btn-light btn-block w-100">
-                        <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back To Dashboard
+                        <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back To Profile
                     </a>
                 </div>
                 <div class="col-md-9">
