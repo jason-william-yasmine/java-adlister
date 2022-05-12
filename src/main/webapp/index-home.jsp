@@ -141,7 +141,7 @@
                             <h4 class="display-4">
                                 <i class="fas fa-users"></i>  ${uNumber}
                             </h4>
-                            <a href="#" class="btn btn-outline-light btn-sm">View</a>
+                            <a href="#" class="btn btn-outline-light btn-sm invisible">View</a>
                         </div>
                     </div>
                 </div>
