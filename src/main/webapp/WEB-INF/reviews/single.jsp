@@ -46,8 +46,8 @@
               </div>
               <div class="col-md-3">
                   <c:if test="${sessionScope.user.id eq review.uid}">
-                      <a href="/profile" class="btn btn-warning btn-block w-100 invisible">
-                          <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back to Profile
+                      <a href="/profile" class="btn btn-success btn-block w-100">
+                          <i class="fa-solid fa-arrow-right"></i>&nbsp;&nbsp; Back to Profile
                       </a>
                   </c:if>
 

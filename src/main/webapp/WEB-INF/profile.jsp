@@ -133,65 +133,7 @@
         </div>
     </section>
 
-
-
-
-
-
-
-<%--    ADD AFTER  --%>
-
-<%--    <div class="container">--%>
-<%--        <h1><img src="${sessionScope.user.avatar}" alt="information">Welcome, ${sessionScope.user.username}!</h1>--%>
-
-<%--    </div>--%>
-
-    <%--Shows Reviews on profile --%>
-<%--    <c:forEach var="review" items="${reviews}">--%>
-<%--        <c:if test="${sessionScope.user.id eq review.uid}">--%>
-<%--            <div class="row no-gutters">--%>
-<%--                <div class="col-sm-3">--%>
-<%--                    <img src="${review.thumb}"--%>
-<%--                         alt="alt text here"--%>
-<%--                         class="card-img-top">--%>
-<%--                </div>--%>
-<%--                <h2>${review.title}</h2>--%>
-<%--                <p>${review.review}</p>--%>
-
-<%--                    &lt;%&ndash;Edit Review&ndash;%&gt;--%>
-<%--                <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">--%>
-<%--                    <button>Edit Review</button>--%>
-<%--                </form>--%>
-
-<%--                    &lt;%&ndash;Delete Review&ndash;%&gt;--%>
-<%--                <form action="/reviews/delete" method="POST">--%>
-<%--                    <button>Delete Review</button>--%>
-<%--                    <input type="hidden" name="singleReview" value="${review.id}">--%>
-<%--                </form>--%>
-
-<%--            </div>--%>
-<%--            <h2>${review.title}</h2>--%>
-<%--            <p>${review.review}</p>--%>
-
-<%--                &lt;%&ndash;Edit Review&ndash;%&gt;--%>
-<%--            <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">--%>
-<%--                <button>Edit Review</button>--%>
-<%--            </form>--%>
-
-<%--                &lt;%&ndash;Delete Review&ndash;%&gt;--%>
-<%--            <form action="/reviews/delete" method="POST">--%>
-<%--                <button>Delete Review</button>--%>
-<%--                <input type="hidden" name="singleReview" value="${review.id}">--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--    </c:if>--%>
-<%--</c:forEach>--%>
-
-
-
-
-
-    <%--FOOT--%>
+        <%--FOOT--%>
     <jsp:include page="/WEB-INF/partials/footer.jsp"/>
 
     <%--SCRIPTS--%>
