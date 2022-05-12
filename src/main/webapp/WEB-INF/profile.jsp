@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <a href="/index-home" class="btn btn-light btn-block w-100">
-                        <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back To Dashboard
+                        <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back To Reviews
                     </a>
                 </div>
                 <div class="col-md-3">
@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="#" class="btn btn-warning btn-block w-100">
+                    <a href="#" class="btn btn-warning btn-block w-100 invisible">
                         <i class="fa-solid fa-user-pen"></i>&nbsp;&nbsp; Edit Account
                     </a>
                 </div>

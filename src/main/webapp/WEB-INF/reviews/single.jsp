@@ -15,35 +15,6 @@
   <jsp:include page="/WEB-INF/partials/head.jsp">
     <jsp:param name="title" value="Welcome to my site!" />
   </jsp:include>
-  <style>
-    .tutInfo{
-      display: flex;
-      flex-direction: row;
-    }
-
-    #reviewInfo{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: space-between;
-      align-items: center;
-    }
-
-    h2{
-      font-size: 60px;
-    }
-
-    p{
-      font-size: 30px;
-    }
-
-    #editDelete{
-      display: flex;
-      flex-direction: row;
-        padding-bottom: 40px;
-      align-items: flex-end;
-    }
-  </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -63,40 +34,83 @@
     </div>
   </header>
 
-  <section class="tutInfo">
-
-          <%--thumb--%>
-                  <img src="${sessionScope.review.thumb}"
-                       alt="${sessionScope.review.review}">
-<div id="reviewInfo">
-            <h2>${sessionScope.review.title}</h2>
-            <%--review--%>
-            <p>${sessionScope.review.review}</p>
-
-
-            <%--Cat--%>
-           <div> Rating: ${sessionScope.review.rating} || Category: ${sessionScope.review.cat} || URL: <a href="${review.tutorialURL}"
-                                                                                                    class="btn btn-primary">
-                <i class="fa-solid fa-link"></i>
-           </a></div>
-</div>
-              <section id="editDelete">
-                  <%--Shows Reviews on profile --%>
-
+  <%--MAIN--%>
+  <%--ACTIONS--%>
+  <section id="actions" class="py-4 bg-light">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <a href="/index-home" class="btn btn-light btn-block w-100">
+                      <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back To Reviews
+                  </a>
+              </div>
+              <div class="col-md-3">
                   <c:if test="${sessionScope.user.id eq review.uid}">
-                      <%--Edit Review--%>
-                      <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">
-                          <button class="btn btn-warning">Edit Review</button>
-                      </form>
-                      <%--Delete Review--%>
-                      <%--Delete Review--%>
-                      <form action="/reviews/delete" method="POST">
-                          <button class="btn btn-danger">Delete Review</button>
-                          <input type="hidden" name="singleReview" value="${review.id}">
-                      </form>
+                      <a href="/profile" class="btn btn-warning btn-block w-100 invisible">
+                          <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back to Profile
+                      </a>
                   </c:if>
 
-              </section>
+              </div>
+              <div class="col-md-3">
+                  <a href="#" class="btn btn-warning btn-block w-100 invisible">
+                      <i class="fa-solid fa-user-pen"></i>&nbsp;&nbsp; Edit Account
+                  </a>
+              </div>
+          </div>
+      </div>
+  </section>
+  <%--REVIEW--%>
+  <section class="tutInfo mt-4">
+      <div class="container w-75">
+          <div class="card">
+              <div class="text-center">
+                  <img src="${sessionScope.review.thumb}" alt="Add alt data in table later" class="card-img-top" style="width: 40%;">
+              </div>
+          </div>
+          <div class="card-header">
+              <h2>${sessionScope.review.title}</h2>
+          </div>
+          <div class="card-body">
+              <div class="card-title">
+                  Rating ${sessionScope.review.rating}
+              </div>
+              <div class="card-main-text">
+                  <hr>
+                  <p>${sessionScope.review.review}</p>
+              </div>
+              <div class="card-side-text">
+                  <hr>s
+                  Category: ${sessionScope.review.cat}
+              </div>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+              <div>
+              <%--link--%>
+                  <div>
+                      <a href="${review.tutorialURL}" class="btn btn-primary"> <i class="fa-solid fa-link"></i> </a>
+                  </div>
+              </div>
+              <%--USER DEPENDENT--%>
+              <div>
+                  <div class="d-flex justify-content-end">
+                      <c:if test="${sessionScope.user.id eq review.uid}">
+                          <%--edit--%>
+                          <%--org--%>
+                          <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">
+                              <button class="btn btn-warning">Edit Review</button>
+                          </form>
+                          <%--del--%>
+                          <%--org--%>
+                          <form action="/reviews/delete" method="POST">
+                              <button class="btn btn-danger">Delete Review</button>
+                              <input type="hidden" name="singleReview" value="${review.id}">
+                          </form>
+                      </c:if>
+                  </div>
+              </div>
+          </div>
+      </div>
   </section>
 
 
