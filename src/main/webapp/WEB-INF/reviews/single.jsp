@@ -50,10 +50,8 @@
   </section>
 <section>
   <%--Shows Reviews on profile --%>
-  <c:forEach var="review" items="${reviews}">
-    <c:if test="${sessionScope.user.id eq user.id}">
-      <div class="col-md-6">
-        <img src="${review.thumb}">
+
+    <c:if test="${sessionScope.user.id eq review.uid}">
           <%--Edit Review--%>
         <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">
           <button>Edit Review</button>
@@ -65,7 +63,7 @@
         </form>
       </div>
     </c:if>
-  </c:forEach>
+
 </section>
 
 
