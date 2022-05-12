@@ -133,7 +133,12 @@
         </div>
     </section>
 
+
         <%--FOOT--%>
+
+
+    <%--FOOT--%>
+
     <jsp:include page="/WEB-INF/partials/footer.jsp"/>
 
     <%--SCRIPTS--%>
