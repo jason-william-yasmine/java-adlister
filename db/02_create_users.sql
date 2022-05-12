@@ -19,9 +19,14 @@ CREATE TABLE users (
 
 -- 3. Seed Table:
 INSERT INTO users (username, email, password, avatar)
-VALUES ('bugs', 'bugs@toon.com', '1234', '/img/avatars/black-01.png'),
-       ('daffy', 'daffy@toon.com', '1234', '/img/avatars/blue-01.png'),
-       ('yosemite', 'yosemite@toon.com', '1234', '/img/avatars/brown-01.png')
+VALUES ('BobaFett', 'bobaFett@war.com', '1234', '/img/avatars/black-01.png'),
+       ('Anakin', 'ASky@Darkside.com', '1234', '/img/avatars/black-01.png'),
+       ('CadBane', 'Cad@grey.com', '1234', '/img/avatars/LightBlue-01.png'),
+       ('Yoda', 'Yoda@yogurt.com', '1234', '/img/avatars/Brown-01.png'),
+       ('Jabba', 'Jabba@crime.com', '1234', '/img/avatars/Brown-01.png'),
+       ('Leia', 'Leia@fightCrime.com', '1234', '/img/avatars/Orange-01.png'),
+       ('Luke', 'Luke@sucks.com', '1234', '/img/avatars/Pink-01.png')
+
 ;
 
 -- 4. Checks

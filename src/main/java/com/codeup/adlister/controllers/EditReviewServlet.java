@@ -19,59 +19,70 @@ public class EditReviewServlet extends HttpServlet{ protected void doGet(HttpSer
     String reviewId = request.getPathInfo().substring(1);
 
     Review grabId = DaoFactory.getReviewsDao().getReviewById(Long.parseLong(reviewId));
-
     request.getSession().setAttribute("review", grabId);
 
+    // Test in Term
+    System.out.println("grabId.getTitle() = " + grabId.getTitle());
     System.out.println("grabId.getDescription() = " + grabId.getReview());
-    System.out.println("grabId.getDescription() = " + grabId.getTitle());
     System.out.println("grabId.getThumb()= " + grabId.getThumb());
-    System.out.println("grabId.getThumb()= " + grabId.getTutorialURL());
-    System.out.println("grabId.getThumb()= " + grabId.getRating());
-    System.out.println("grabId.getThumb()= " + grabId.getReview());
-    System.out.println("grabId.getThumb()= " + grabId.getCat());
+    System.out.println("grabId.getTutorialURL()= " + grabId.getTutorialURL());
+    System.out.println("grabId.getRating()= " + grabId.getRating());
+    System.out.println("grabId.getCat()= " + grabId.getCat());
 
-    request.setAttribute("existingTitle", grabId.getTitle());
-    request.setAttribute("existingDescription", grabId.getReview());
-    request.setAttribute("existingThumb", grabId.getThumb());
-    request.setAttribute("existingTutorialURL", grabId.getTutorialURL());
-    request.setAttribute("existingRating", grabId.getRating());
-    request.setAttribute("existingReview", grabId.getReview());
-    request.setAttribute("existingCat", grabId.getCat());
+    // Set Old data into Session
+    request.getSession().setAttribute("existingTitle", grabId.getTitle());
+    request.getSession().setAttribute("existingDescription", grabId.getReview());
+    request.getSession().setAttribute("existingThumb", grabId.getThumb());
+    request.getSession().setAttribute("existingTutorialURL", grabId.getTutorialURL());
+    request.getSession().setAttribute("existingRating", grabId.getRating());
+    request.getSession().setAttribute("existingCat", grabId.getCat());
 
+    // Stand
     request.getRequestDispatcher("/WEB-INF/reviews/edit.jsp").forward(request, response);
-
 }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-
-
 
         Review reviewObject = (Review) request.getSession().getAttribute("review");
 
         System.out.println("singleReview = " + reviewObject);
 
         request.setAttribute("existingTitle", reviewObject.getTitle());
-        request.setAttribute("existingDescription", reviewObject.getReview());
-
+        request.setAttribute("existingReviewComments", reviewObject.getReview());
+        request.setAttribute("existingRating", reviewObject.getRating());
+        request.setAttribute("existingTutorialURL", reviewObject.getTutorialURL());
         request.setAttribute("existingThumb", reviewObject.getThumb());
-
-
+        request.setAttribute("existingCat", reviewObject.getCat());
 
         System.out.println("reviewObject.getTitle() = " + reviewObject.getTitle());
-        request.setAttribute("reviewObject", reviewObject);
-        request.setAttribute("existingTitle", reviewObject.getTitle());
-        request.setAttribute("existingDescription", reviewObject.getReview());
 
-        request.setAttribute("existingThumb", reviewObject.getThumb());
+        request.setAttribute("reviewObject", reviewObject);
+//
+//        request.setAttribute("existingReviewComments", reviewObject.getReview());
+//        request.setAttribute("existingTitle", reviewObject.getTitle());
+//        request.setAttribute("existingThumb", reviewObject.getThumb());
 
 
         //======SETTING VALUES IN THE FORM=======//
         String title = request.getParameter("title");
-        String description = request.getParameter("description");
+        String reviewComments = request.getParameter("reviewComments");
+        int rating = Integer.parseInt(request.getParameter("rating"));
+        String tutorialURL = request.getParameter("tutorialURL");
         String thumb = request.getParameter("thumb");
+        String cat = request.getParameter("cat");
 
 
-        DaoFactory.getReviewsDao().edit(reviewObject, title, description, thumb);
+        // Run Update
+        DaoFactory.getReviewsDao().edit(reviewObject,
+                title,
+                reviewComments,
+                rating,
+                tutorialURL,
+                thumb,
+                cat);
+
+
+        // Redirect
         response.sendRedirect("/profile");
 
     }
