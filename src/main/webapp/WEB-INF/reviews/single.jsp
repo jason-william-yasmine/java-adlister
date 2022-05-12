@@ -15,6 +15,35 @@
   <jsp:include page="/WEB-INF/partials/head.jsp">
     <jsp:param name="title" value="Welcome to my site!" />
   </jsp:include>
+  <style>
+    .tutInfo{
+      display: flex;
+      flex-direction: row;
+    }
+
+    #reviewInfo{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: space-between;
+      align-items: center;
+    }
+
+    h2{
+      font-size: 60px;
+    }
+
+    p{
+      font-size: 30px;
+    }
+
+    #editDelete{
+      display: flex;
+      flex-direction: row;
+        padding-bottom: 40px;
+      align-items: flex-end;
+    }
+  </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -34,48 +63,43 @@
     </div>
   </header>
 
-  <%--MAIN--%>
-  <section id="review" class="mt-4">
-    <div class="container">
-      <div class="row">
-        <%--LEFT--%>
-        < class="col-md-9">
-          <%--REVIEW--%>
-          <div class="card">
+  <section class="tutInfo">
+
           <%--thumb--%>
-            <div class="row">
-              <div class="col-sm-3">
                   <img src="${sessionScope.review.thumb}"
-                       alt="${sessionScope.review.review}"
-                       class="card-img-top">
-                <div class="col-sm-9">
-                  <%--title--%>
-                  <div class="h1">
-                    Tutorial Title: ${sessionScope.review.title}
-                  </div>
-                </div>
-                <%--rating--%>
-                <div class="star-rating">
-                  Stars: ${sessionScope.review.rating}<br>
-                </div>
-                </div>
-              </div>
-            </div>
-          <div class="card-body">
+                       alt="${sessionScope.review.review}">
+<div id="reviewInfo">
+            <h2>${sessionScope.review.title}</h2>
             <%--review--%>
             <p>${sessionScope.review.review}</p>
+
+
             <%--Cat--%>
-            <small>${sessionScope.review.cat}</small>
-          </div>
-        </div>
-        <%--RIGHT--%>
-        <div class="col-md-3">
+           <div> Rating: ${sessionScope.review.rating} || Category: ${sessionScope.review.cat} || URL: <a href="${review.tutorialURL}"
+                                                                                                    class="btn btn-primary">
+                <i class="fa-solid fa-link"></i>
+           </a></div>
+</div>
+              <section id="editDelete">
+                  <%--Shows Reviews on profile --%>
 
-        </div>
+                  <c:if test="${sessionScope.user.id eq review.uid}">
+                      <%--Edit Review--%>
+                      <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">
+                          <button class="btn btn-warning">Edit Review</button>
+                      </form>
+                      <%--Delete Review--%>
+                      <%--Delete Review--%>
+                      <form action="/reviews/delete" method="POST">
+                          <button class="btn btn-danger">Delete Review</button>
+                          <input type="hidden" name="singleReview" value="${review.id}">
+                      </form>
+                  </c:if>
 
-      </div>
-    </div>
+              </section>
   </section>
+
+
 
 
   <%--FOOT--%>
