@@ -22,7 +22,7 @@ public class DeleteReviewServlet extends HttpServlet {
         int reviewId = Integer.parseInt(request.getParameter("singleReview"));
         Review singleReview = DaoFactory.getReviewsDao().getReviewById(reviewId);
         DaoFactory.getReviewsDao().delete(singleReview);
-        response.sendRedirect("/profile");
+        response.sendRedirect("/index-home");
         //delete ad
 
 
