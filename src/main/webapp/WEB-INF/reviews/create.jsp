@@ -35,8 +35,8 @@
                     </div>
                 <%--thumb--%>
                     <div class="form-group mt-3">
-                        <label for="thumb" class="mb-1">Where Tutorial Comes From</label>
-                        <select id="thumb" class="form-select mt-3" name="thumb">
+                        <label for="thumb">Where Tutorial Comes From</label>
+                        <select id="thumb" class="form-select mt-1" name="thumb">
                             <option selected>  </option>
                             <option
                                     value="http://localhost:8080/img/tut-thumbs/BitDegree.png">
@@ -109,10 +109,11 @@
                         <label for="tutorialURL" class="mb-1">Enter URL for Tutorial</label>
                         <input type="text" id="tutorialURL" class="form-control" name="tutorialURL" value="${sessionScope.tutorialURL}">
                     </div>
+
                 <%--rating--%>
                     <div class="form-group mt-3">
-                        <label for="rating" class="mb-1">Rating</label>
-                        <select id="rating" class="form-select mt-3" name="rating">
+                        <label for="rating" >Rating</label>
+                        <select id="rating" class="form-select mt-1" name="rating">
                             <option selected value="-1">  </option>
                             <option value="0">🙅</option>
                             <option value="1">⭐️</option>
@@ -129,8 +130,8 @@
                     </div>
                 <%--cat--%>
                     <div class="form-group mt-3">
-                        <label for="cat" class="mb-1">Category of Tutorial</label>
-                        <select class="form-select mt-3" name="cat" id="cat">
+                        <label for="cat">Category of Tutorial</label>
+                        <select class="form-select mt-1" name="cat" id="cat">
                             <option selected> </option>
                             <option value="html">HTML</option>
                             <option value="css">CSS</option>

@@ -26,10 +26,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h>
+                    <h4>
                         <i class="fa-solid fa-list"></i>
                         Reviews
-                    </h>
+                    </h4>
                 </div>
             </div>
         </div>
@@ -58,16 +58,15 @@
                                         <div class="card-title">
                                             Tutorial Title: ${review.title}
                                         </div>
-                                        <div class="star-rating">
-                                            Stars: ${review.rating}<br>
+
+<%--                                        <div class="star-rating">--%>
+<%--                                            Stars: ${review.rating}<br>--%>
+<%--                                        </div>--%>
+                                        <div>
+                                            <p class="mt-2">
+                                                <div class="star-out"></div>
+                                            </p>
                                         </div>
-                                            <%--                                    <div class="star-rating">--%>
-                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
-                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
-                                            <%--                                        <i class="fa-solid fa-star"></i>--%>
-                                            <%--                                        <i class="fa-regular fa-star"></i>--%>
-                                            <%--                                        <i class="fa-regular fa-star"></i>--%>
-                                            <%--                                    </div>--%>
                                         <div>
                                             <p class="mt-2">
                                                     ${review.review}
@@ -80,6 +79,9 @@
                         <div class="row mt-4">
                             <div class="col-12">
                                 <div class="d-flex justify-content-end">
+                                    <div style="margin-right: 15px">
+                                        <span class="badge badge-pill badge-light">${review.cat}</span>
+                                    </div>
                                     <form method="post" action="/index-home">
                                         <button
                                                 class="btn btn-primary open-review mx-3"
@@ -106,6 +108,9 @@
                             <h4 class="display-4">
                                 <i class="fas fa-pencil-alt"></i> ${rNumber}
                             </h4>
+                            <form method="get" name="/index-home" class="form-inline my-2 mx-3 my-lg-0">
+                                <input class="form-control bg-primary text-light" name="title" placeholder="Search Reviews">
+                            </form>
                         </div>
                     </div>
                     <!--CARD 02-->
@@ -113,13 +118,11 @@
                         <div class="card-body">
                             <h3>Categories</h3>
                             <h4 class="display-4">
-                                <i class="fas fa-folder"></i> ?
+                                <i class="fas fa-folder"></i>
                             </h4>
-<%--                            <a href="categories.html" class="btn btn-outline-light btn-sm">Select</a>--%>
                             <form action="/index-home" method="GET">
                                 <div class="form-group mt-3">
-                                    <label for="cat" class="mb-1">Category of Tutorial</label>
-                                    <select class="form-select mt-3" name="cat" id="cat">
+                                    <select  class="form-select mt-3 bg-success" name="cat" id="cat">
                                         <option selected> </option>
                                         <option value="html">HTML</option>
                                         <option value="css">CSS</option>
@@ -127,8 +130,7 @@
                                         <option value="bootstrap">BootStrap</option>
                                     </select>
                                 </div>
-
-                                <input type="submit" class="btn btn-block btn-block btn-success mt-3 w-100" value="Search">
+                                <input type="submit" class="d-none btn btn-block btn-block btn-success mt-3 w-100" value="Search">
                             </form>
                         </div>
                     </div>
@@ -139,7 +141,7 @@
                             <h4 class="display-4">
                                 <i class="fas fa-users"></i>  ${uNumber}
                             </h4>
-                            <a href="users.html" class="btn btn-outline-light btn-sm">View</a>
+                            <a href="#" class="btn btn-outline-light btn-sm">View</a>
                         </div>
                     </div>
                 </div>
@@ -152,6 +154,66 @@
 
     <%--SCRIPTS--%>
     <jsp:include page="/WEB-INF/partials/scripts.jsp" />
+
+    <script>
+        const star${sessionScope.review.review}
+        let starOut = '';
+        switch(star${review.review}){
+            case 0:
+                starOut = '' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>';
+                break;
+            case 1:
+                starOut = '' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>';
+                break;
+            case 2:
+                starOut = '' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>';
+                break;
+            case 3:
+                starOut = '' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>';
+                break;
+            case 4:
+                starOut = '' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-solid fa-star"></i>';
+                break;
+            case 5:
+                starOut = '' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>' +
+                    '<i class="fa-regular fa-star"></i>';
+                break;
+        }
+
+        $('.star-out').html(starOut);
+        console.log(starOut)
+
+    </script>
+
 
 </body>
 </html>
