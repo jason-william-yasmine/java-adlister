@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-3">
                     <a href="#" class="btn btn-success btn-block">
-                        <i class="fas fa-lock"></i> Chang Password
+                        <i class="fas fa-lock"></i> Change Password
                     </a>
                 </div>
                 <div class="col-md-3">
@@ -89,7 +89,7 @@
                                             <i class="fa-solid fa-pen-to-square"></i>Edit
                                         </a>
                                     <td>
-                                        <a href="#" class="btn btn-success">
+                                        <a href="${pageContext.request.contextPath}/reviews/single" class="btn btn-success">
                                             <i class="fas fa-angle-double-right"></i>Details
                                         </a>
 
