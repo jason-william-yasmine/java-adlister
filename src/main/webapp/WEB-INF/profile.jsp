@@ -96,7 +96,7 @@
                                     </td>
                                     <%--Details--%>
                                     <td>
-                                        <a href="#"
+                                        <a href="${pageContext.request.contextPath}/reviews/single"
                                            class="btn btn-success d-flex justify-content-center align-items-center"
                                            style="height: 40px; width: 100px;">
                                             <i class="fas fa-angle-double-right"></i>&nbsp; Details
