@@ -91,12 +91,6 @@ public class MySQLReviewsDao implements Reviews{
         }
     }
 
-    public static void main(String[] args) {
-        Reviews reviewsDao = new MySQLReviewsDao(new Config());
-        List<Review> reviews = reviewsDao.getReviewByTitle("ggg");
-
-    }
-
     @Override
     public List<Review> getReviewByTitle(String title) {
         String q = "SELECT * FROM reviews WHERE title LIKE ?";
@@ -110,25 +104,36 @@ public class MySQLReviewsDao implements Reviews{
         }
     }
 
-
-
     @Override
-    public void edit(Review review, String title, String description, String thumb){
+    public void edit(Review review,
+                     String title,
+                     String reviewComments,
+                     int rating,
+                     String tutorialURL,
+                     String thumb,
+                     String cat){
         try{
-            String updateQuery = "UPDATE reviews SET title = ?, review = ?, thumb = ? WHERE id = ?";
-            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1,title);
-            stmt.setString(2, description);
-            stmt.setString(3, thumb);
-            stmt.setLong(4, review.getId());
-           
-            stmt.executeUpdate();
+            String updateQuery = "UPDATE reviews " +
+                    "SET title = ?, " +
+                    "review = ?, " +
+                    "rating = ?, " +
+                    "tutorialURL = ?, " +
+                    "thumb = ?, " +
+                    "cat = ?" +
+                    " WHERE id = ?";
+            PreparedStatement s = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+            s.setString(1,title);
+            s.setString(2, reviewComments);
+            s.setInt(3, rating);
+            s.setString(4, tutorialURL);
+            s.setString(5, thumb);
+            s.setString(6, cat);
+            s.setLong(7, review.getId());
+            s.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-
 
     @Override
     public void delete(Review review) {

@@ -30,8 +30,7 @@ public interface Reviews {
     void delete(Review review);
 
     // Edit Review
-    void edit(Review reviewObject, String title, String description, String thumb);
-    // edit with new stuff
+    public void edit(Review reviewObject, String title, String review, int rating, String tutorialURL, String thumb, String cat);
 }
 
 

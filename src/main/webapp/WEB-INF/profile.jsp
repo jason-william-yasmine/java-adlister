@@ -32,18 +32,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="/index-home" class="btn btn-light btn-block">
-                        <i class="fas fa-arrow-left"></i> Back To Dashboard
+                    <a href="/index-home" class="btn btn-light btn-block w-100">
+                        <i class="fas fa-arrow-left"></i>&nbsp;&nbsp; Back To Dashboard
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="#" class="btn btn-success btn-block">
-                        <i class="fas fa-lock"></i> Chang Password
+
+                    <a href="/reviews/create" class="btn btn-success btn-block w-100">
+                        <i class="fa-solid fa-plus"></i>&nbsp;&nbsp; Add Review
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="#" class="btn btn-danger btn-block">
-                        <i class="fas fa-trash"></i> Delete Account
+                    <a href="#" class="btn btn-warning btn-block w-100">
+                        <i class="fa-solid fa-user-pen"></i>&nbsp;&nbsp; Edit Account
                     </a>
                 </div>
             </div>
@@ -51,7 +52,6 @@
     </section>
 
     <%--PROFILE--%>
-    <!--PROFILE-->
     <section id="profile">
         <div class="container">
             <div class="row">
@@ -75,25 +75,35 @@
                             <%--REVIEWS--%>
                             <c:forEach var="review" items="${reviews}">
                                 <c:if test="${sessionScope.user.id eq review.uid}">
+                                <tr>
                                     <td>Stars: ${review.rating}</td>
                                     <td>${review.title}</td>
+                                    <%--Link--%>
                                     <td>
                                         <a href="${review.tutorialURL}"
-                                           class="btn btn-primary">
-                                            <i class="fa-solid fa-link"></i>
+                                           class="btn btn-primary d-flex justify-content-center align-items-center"
+                                           style="height: 40px; width: 100px;">
+                                            <i class="fa-solid fa-link"></i>&nbsp; Visit
                                         </a>
                                     </td>
+                                    <%--Edit--%>
                                     <td>
                                         <a href="${pageContext.request.contextPath}/reviews/edit/${review.id}"
-                                           class="btn btn-warning">
-                                            <i class="fa-solid fa-pen-to-square"></i>Edit
+                                           class="btn btn-warning d-flex justify-content-center align-items-center"
+                                           style="height: 40px; width: 100px;">
+                                            <i class="fa-solid fa-pen-to-square"></i>&nbsp; Edit
                                         </a>
+                                    </td>
+                                    <%--Details--%>
                                     <td>
-                                        <a href="#" class="btn btn-success">
-                                            <i class="fas fa-angle-double-right"></i>Details
+                                        <a href="#"
+                                           class="btn btn-success d-flex justify-content-center align-items-center"
+                                           style="height: 40px; width: 100px;">
+                                            <i class="fas fa-angle-double-right"></i>&nbsp; Details
                                         </a>
 
                                     </td>
+                                </tr>
                                 </c:if>
                             </c:forEach>
                             </tbody>
@@ -107,12 +117,14 @@
                             <h3>${sessionScope.user.username}</h3>
                         </div>
                         <div class="body">
-                            <img src="${sessionScope.user.avatar}" alt="Avatar Picture" class="d-block img-fluid mb-3">
+                            <img src="${sessionScope.user.avatar}" alt="Avatar Picture" class="d-block img-fluid mb-3 p-3">
                         </div>
-                        <div class="card-title">
-                            Email: ${sessionScope.user.email}
+                        <div class="card-title p-3">
+                            <strong>Email:</strong><br>
+                            ${sessionScope.user.email}
                         </div>
-                        <p>
+                        <p class="p-3">
+                            <strong>Bio: </strong><br>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores doloremque ea mollitia obcaecati provident qui vel voluptatum. Aspernatur ducimus est facere fugiat inventore, laudantium maxime minus officiis provident quibusdam quidem.
                         </p>
                     </div>
