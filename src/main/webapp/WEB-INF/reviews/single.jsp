@@ -34,48 +34,39 @@
     </div>
   </header>
 
-  <%--MAIN--%>
-  <section id="review" class="mt-4">
-    <div class="container">
-      <div class="row">
-        <%--LEFT--%>
-        < class="col-md-9">
-          <%--REVIEW--%>
-          <div class="card">
+  <section>
+
           <%--thumb--%>
-            <div class="row">
-              <div class="col-sm-3">
                   <img src="${sessionScope.review.thumb}"
-                       alt="${sessionScope.review.review}"
-                       class="card-img-top">
-                <div class="col-sm-9">
-                  <%--title--%>
-                  <div class="h1">
-                    Tutorial Title: ${sessionScope.review.title}
-                  </div>
-                </div>
-                <%--rating--%>
-                <div class="star-rating">
-                  Stars: ${sessionScope.review.rating}<br>
-                </div>
-                </div>
-              </div>
-            </div>
-          <div class="card-body">
+                       alt="${sessionScope.review.review}">
+
+            <h2>${sessionScope.review.title}</h2>
             <%--review--%>
             <p>${sessionScope.review.review}</p>
+            <h3>Rating: ${sessionScope.review.rating}</h3>
             <%--Cat--%>
             <small>${sessionScope.review.cat}</small>
-          </div>
-        </div>
-        <%--RIGHT--%>
-        <div class="col-md-3">
 
-        </div>
-
-      </div>
-    </div>
   </section>
+<section>
+  <%--Shows Reviews on profile --%>
+  <c:forEach var="review" items="${reviews}">
+    <c:if test="${sessionScope.user.id eq user.id}">
+      <div class="col-md-6">
+        <img src="${review.thumb}">
+          <%--Edit Review--%>
+        <form action="${pageContext.request.contextPath}/reviews/edit/${review.id}" method="get">
+          <button>Edit Review</button>
+        </form>
+          <%--Delete Review--%>
+        <form action="/reviews/delete" method="POST">
+          <button>Delete Review</button>
+          <input type="hidden" name="singleReview" value="${review.id}">
+        </form>
+      </div>
+    </c:if>
+  </c:forEach>
+</section>
 
 
   <%--FOOT--%>
